@@ -1,0 +1,22 @@
+{:paths ["src" "resources"]
+ :deps
+ {org.clojure/clojure {:mvn/version "1.12.5"}
+  org.clojure/clojurescript {:mvn/version "1.12.145"}
+  no.cjohansen/m1p {:mvn/version "2026.07.1"}
+  no.cjohansen/replicant {:mvn/version "2026.07.1"}
+  no.cjohansen/nexus {:mvn/version "2026.08.1"}}
+ :aliases
+ {:test {:extra-paths ["test"]}
+  :corpus {:extra-paths ["scripts"]
+           :main-opts ["-m" "pretypist.corpus-build"]}
+  :dev
+  {:extra-paths ["dev"]
+   :extra-deps
+   {org.clojars.hkjels/cljs-reload {:mvn/version "2026.08.22"}}
+   :main-opts
+   ["-m" "pretypist.dev"
+    "-co" "dev.cljs.edn"
+    "-re" "cljs-reload.repl"
+    "-ro" "cljs-reload.edn"
+    "-c" "pretypist.core"
+    "-r"]}}}

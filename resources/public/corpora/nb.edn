@@ -1,0 +1,40 @@
+[{:id :nb/fjordlys
+  :title "Lys over fjorden"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :fortelling :fjord :vaer}
+  :chunks ["Lyset lå lavt" "over fjorden," "og en måke gled" "mellom brygga og båtene." "Vi gikk uten hastverk" "mens regnet stilnet," "og byen åpnet seg" "gate for gate."]}
+ {:id :nb/kveldskjokken
+  :title "Kveldskjøkken"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :fortelling :hverdagsliv :norske-bokstaver}
+  :chunks ["På kjøkkenet duftet det" "av kaffe og varmt brød." "Hun åpnet døren," "fant frem to kopper" "og sa at været" "endelig hadde snudd."]}
+ {:id :nb/skogsvei
+  :title "Skogsveien"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :fortelling :natur :lange-fraser}
+  :chunks ["Stien fulgte bekken" "gjennom mørke grantrær." "Etter den bratte svingen" "så vi åsen igjen," "blå og rolig" "under den klare himmelen."]}
+ {:id :nb/beskjed
+  :title "En kort beskjed"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :dialog :anforselstegn :tegnsetting}
+  :chunks ["Han skrev:" "\"Møt meg klokken åtte,\"" "og la til:" "\"Ta med skjerf;" "det blåser ved sjøen.\"" "Hun svarte straks," "før hun rakk å" "ombestemme seg."]}
+ {:id :nb/torghandel
+  :title "På torget"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :fortelling :norske-bokstaver :overforing}
+  :chunks ["På torget kjøpte Sæmund" "blåbær, brød og røkt ørret." "Åse bar kurven hjem," "mens måkene kretset lavt" "over den våte brygga."]}
+ {:id :nb/kveldstog
+  :title "Kveldstoget"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :fortelling :tall :store-bokstaver :num-lag}
+  :chunks ["Klokken 18:30" "møtte Åse og Øyvind" "ved spor 2." "Toget var 12 minutter forsinket," "men kaffen holdt seg varm."]}
+ {:id :nb/ved-doren
+  :title "Ved døren"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :dialog :anforselstegn :sporsmalstegn}
+  :chunks ["\"Går du nå?\" spurte Frøya." "\"Jeg venter på Sæmund,\"" "sa Øyvind rolig," "før han lukket boken" "og så mot døren."]}
+ {:id :nb/postkort
+  :title "Postkort fra Ålesund"
+  :language :nb
+  :tags #{:reviewed :coherent-prose :fortelling :norske-bokstaver :egennavn}
+  :chunks ["I Ålesund skrev Nora" "et kort til Øystein." "Hun beskrev været, båtene" "og den smale brygga," "før hun gikk hjem."]}]

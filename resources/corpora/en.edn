@@ -1,0 +1,45 @@
+[{:id :en/night-window
+  :title "Night window"
+  :language :en
+  :tags #{:reviewed :coherent-prose :narrative :night :weather}
+  :chunks ["The last tram turned" "beyond the wet square," "leaving a ribbon of light" "across the quiet pavement." "Mara kept the window open" "and listened for the rain" "to soften against the roofs."]}
+ {:id :en/field-notes
+  :title "Field notes"
+  :language :en
+  :tags #{:reviewed :coherent-prose :narrative :outdoors :long-phrases}
+  :chunks ["Before the path narrowed," "we marked the pale stones" "beside the stream" "and folded the map carefully." "The hill looked nearer" "than it really was," "but the steady climb" "gave us time to notice" "how the wind changed." ]}
+ {:id :en/workshop
+  :title "The workshop"
+  :language :en
+  :tags #{:reviewed :coherent-prose :reflective :rhythm :gentle}
+  :chunks ["A useful tool waits quietly" "until the hand understands it." "Good work begins slowly," "with one clean movement," "then gathers a rhythm" "that makes effort feel simple."]}
+ {:id :en/letters
+  :title "A small reply"
+  :language :en
+  :tags #{:reviewed :coherent-prose :dialogue :quotes :punctuation}
+  :chunks ["She wrote," "\"Come by at six,\"" "then added a gentler line:" "\"Bring no plans;" "we will follow the weather.\"" "The note ended there," "which made the invitation better."]}
+ {:id :en/norwegian-map
+  :title "Names on the map"
+  :language :en
+  :tags #{:reviewed :coherent-prose :narrative :norwegian-letters :transfer}
+  :chunks ["Mara copied Ålesund carefully," "then wrote blåbær and vær" "beside Sæter and øya." "At the bottom she added" "the same words once more," "so nobody would mistake" "the Norwegian letters."]}
+ {:id :en/morning-platform
+  :title "The morning platform"
+  :language :en
+  :tags #{:reviewed :coherent-prose :narrative :numbers :capitalization :num-layer}
+  :chunks ["At 7:30," "Mara met Elias" "beside platform 4." "They checked the delay," "counted 12 quiet minutes," "shared one warm coffee," "and watched the signal" "turn green."]}
+ {:id :en/field-signal
+  :title "Field signal"
+  :language :en
+  :tags #{:reviewed :coherent-prose :narrative :symbols :numbers :sym-layer}
+  :chunks ["At 18:40," "the hill station sent" "\"Battery at 82%,\"" "then signed the note" "to field@north before dusk."]}
+ {:id :en/another-route
+  :title "Another route"
+  :language :en
+  :tags #{:reviewed :coherent-prose :dialogue :apostrophe :quotes :punctuation}
+  :chunks ["\"Don't hurry,\" Nora said," "as the door swung closed." "\"We'll find another route\"" "if the bridge is dark," "and meet June" "by the river."]}
+ {:id :en/three-lamps
+  :title "Three lamps"
+  :language :en
+  :tags #{:reviewed :coherent-prose :narrative :capitalization :proper-names}
+  :chunks ["Amir left Baker Street" "just before sunrise." "Later, June and Nora" "found him near the library," "where three lamps still burned."]}]

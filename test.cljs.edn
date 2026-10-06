@@ -1,0 +1,7 @@
+{:main pretypist.test-runner
+ :target :nodejs
+ :npm-deps true
+ :output-to "target/test.js"
+ :output-dir "target/test-out"
+ :optimizations :none
+ :source-map true}

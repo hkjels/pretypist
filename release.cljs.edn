@@ -1,0 +1,12 @@
+{:main pretypist.core
+ :target :bundle
+ :output-to "target/release/out/main.js"
+ :output-dir "target/release/out"
+ :asset-path "/js"
+ :externs ["externs/pretypist.externs.js"]
+ :optimizations :advanced
+ :source-map "target/release/out/main.js.map"
+ :closure-defines {cljs.core/*global* "window"
+                   goog.DEBUG false}
+ :bundle-cmd
+ {:default ["npx" "--no-install" "esbuild" "target/release/out/main.js" "--bundle" "--platform=browser" "--format=iife" "--conditions=browser,import" "--minify" "--sourcemap" "--outfile=resources/public/js/app.js"]}}

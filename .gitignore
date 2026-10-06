@@ -1,0 +1,7 @@
+node_modules/
+target/
+.cpcache/
+test-results/
+playwright-report/
+.DS_Store
+npm-debug.log*

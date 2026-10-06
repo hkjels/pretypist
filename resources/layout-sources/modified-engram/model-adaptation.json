@@ -1,0 +1,864 @@
+{
+  "version": 2,
+  "source": "authored/model.glb",
+  "sourceSha256": "01b84edda68fd4b6501bdc0f9d8e2dc9bb7a1bbcdcfd5dd286c437b819b24f08",
+  "outputSha256": "a360548aaee9f44983321b2cd6495e0755118edc665583515302221e7cee8f7e",
+  "editableQuadRatio": null,
+  "note": "Targeted surface/fastener refinement, not whole-model retopology. Original source retained byte-for-byte.",
+  "refinement": {
+    "version": 1,
+    "settings": {
+      "version": 1,
+      "units": "millimetres",
+      "keycap": {
+        "dishDepth": 0.65,
+        "cornerInset": 0.35,
+        "cornerDrop": 0,
+        "color": "#28292c",
+        "roughness": 0.67
+      },
+      "case": {
+        "color": "#15161a",
+        "roughness": 0.52,
+        "normalStrength": 0.32,
+        "textureTileSize": 4
+      },
+      "steel": {
+        "color": "#c0c4c7",
+        "metalness": 1,
+        "screwRoughness": 0.27,
+        "usbRoughness": 0.31
+      },
+      "fastener": {
+        "shaftRadius": 1,
+        "engagement": 0.65,
+        "headOverlap": 0.3
+      }
+    },
+    "refinements": [
+      {
+        "node": "case_bottom_left",
+        "role": "case"
+      },
+      {
+        "node": "case_top_left",
+        "role": "case"
+      },
+      {
+        "node": "L_SW2_Keycap",
+        "role": "keycap",
+        "center": [
+          -136.08999633789062,
+          18.600000381469727
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW3_Keycap",
+        "role": "keycap",
+        "center": [
+          -118.08999633789062,
+          30.59999942779541
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW4_Keycap",
+        "role": "keycap",
+        "center": [
+          -100.08999633789062,
+          36.59999942779541
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW5_Keycap",
+        "role": "keycap",
+        "center": [
+          -82.08999633789062,
+          29.979999542236328
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW6_Keycap",
+        "role": "keycap",
+        "center": [
+          -64.08999824523926,
+          27.59999942779541
+        ],
+        "angle": 8.503007968840848e-7
+      },
+      {
+        "node": "L_SW8_Keycap",
+        "role": "keycap",
+        "center": [
+          -136.08999633789062,
+          1.6000001430511475
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW9_Keycap",
+        "role": "keycap",
+        "center": [
+          -118.08999633789062,
+          13.600000143051147
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW10_Keycap",
+        "role": "keycap",
+        "center": [
+          -100.08999633789062,
+          19.600000381469727
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW11_Keycap",
+        "role": "keycap",
+        "center": [
+          -82.08999633789062,
+          12.979999780654907
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW12_Keycap",
+        "role": "keycap",
+        "center": [
+          -64.08999824523926,
+          10.600000143051147
+        ],
+        "angle": 8.503007968840848e-7
+      },
+      {
+        "node": "L_SW14_Keycap",
+        "role": "keycap",
+        "center": [
+          -136.08999633789062,
+          -15.399999856948853
+        ],
+        "angle": -2.1258842952676105e-7
+      },
+      {
+        "node": "L_SW15_Keycap",
+        "role": "keycap",
+        "center": [
+          -118.08999633789062,
+          -3.3999998569488525
+        ],
+        "angle": -2.1258762750164806e-7
+      },
+      {
+        "node": "L_SW16_Keycap",
+        "role": "keycap",
+        "center": [
+          -100.08999633789062,
+          2.6000001430511475
+        ],
+        "angle": -9.318767979493714e-12
+      },
+      {
+        "node": "L_SW17_Keycap",
+        "role": "keycap",
+        "center": [
+          -82.08999633789062,
+          -4.0249998569488525
+        ],
+        "angle": -2.1258762750164806e-7
+      },
+      {
+        "node": "L_SW18_Keycap",
+        "role": "keycap",
+        "center": [
+          -64.08999824523926,
+          -6.399999797344208
+        ],
+        "angle": 7.971565438857908e-7
+      },
+      {
+        "node": "L_SW19_Keycap",
+        "role": "keycap",
+        "center": [
+          -87.98999786376953,
+          -23.99000072479248
+        ],
+        "angle": -4.909169000003267e-7
+      },
+      {
+        "node": "L_SW20_Keycap",
+        "role": "keycap",
+        "center": [
+          -67.93999862670898,
+          -26.579999923706055
+        ],
+        "angle": -0.26179946450109765
+      },
+      {
+        "node": "L_SW21_Keycap",
+        "role": "keycap",
+        "center": [
+          -47.34000015258789,
+          -29.78999900817871
+        ],
+        "angle": -0.5235989050070486
+      },
+      {
+        "node": "L_USB_C_shell",
+        "role": "metal"
+      },
+      {
+        "node": "L_Cover_standoff_0",
+        "role": "standoff"
+      },
+      {
+        "node": "L_Cover_screw_0",
+        "role": "metal"
+      },
+      {
+        "node": "L_Cover_standoff_1",
+        "role": "standoff"
+      },
+      {
+        "node": "L_Cover_screw_1",
+        "role": "metal"
+      },
+      {
+        "node": "case_bottom_right",
+        "role": "case"
+      },
+      {
+        "node": "case_top_right",
+        "role": "case"
+      },
+      {
+        "node": "R_SW2_Keycap",
+        "role": "keycap",
+        "center": [
+          136.08999633789062,
+          18.600000381469727
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW3_Keycap",
+        "role": "keycap",
+        "center": [
+          118.08999633789062,
+          30.59999942779541
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW4_Keycap",
+        "role": "keycap",
+        "center": [
+          100.08999633789062,
+          36.59999942779541
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW5_Keycap",
+        "role": "keycap",
+        "center": [
+          82.08999633789062,
+          29.979999542236328
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW6_Keycap",
+        "role": "keycap",
+        "center": [
+          64.08999824523926,
+          27.59999942779541
+        ],
+        "angle": -8.503007969728914e-7
+      },
+      {
+        "node": "R_SW8_Keycap",
+        "role": "keycap",
+        "center": [
+          136.08999633789062,
+          1.6000001430511475
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW9_Keycap",
+        "role": "keycap",
+        "center": [
+          118.08999633789062,
+          13.600000143051147
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW10_Keycap",
+        "role": "keycap",
+        "center": [
+          100.08999633789062,
+          19.600000381469727
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW11_Keycap",
+        "role": "keycap",
+        "center": [
+          82.08999633789062,
+          12.979999780654907
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW12_Keycap",
+        "role": "keycap",
+        "center": [
+          64.08999824523926,
+          10.600000143051147
+        ],
+        "angle": -8.503007969728914e-7
+      },
+      {
+        "node": "R_SW14_Keycap",
+        "role": "keycap",
+        "center": [
+          136.08999633789062,
+          -15.399999856948853
+        ],
+        "angle": 2.1258842945884706e-7
+      },
+      {
+        "node": "R_SW15_Keycap",
+        "role": "keycap",
+        "center": [
+          118.08999633789062,
+          -3.3999998569488525
+        ],
+        "angle": 2.1258762755466216e-7
+      },
+      {
+        "node": "R_SW16_Keycap",
+        "role": "keycap",
+        "center": [
+          100.08999633789062,
+          2.6000001430511475
+        ],
+        "angle": 9.31890685883438e-12
+      },
+      {
+        "node": "R_SW17_Keycap",
+        "role": "keycap",
+        "center": [
+          82.08999633789062,
+          -4.0249998569488525
+        ],
+        "angle": 2.1258762755466216e-7
+      },
+      {
+        "node": "R_SW18_Keycap",
+        "role": "keycap",
+        "center": [
+          64.08999824523926,
+          -6.399999797344208
+        ],
+        "angle": -7.971565438116155e-7
+      },
+      {
+        "node": "R_SW19_Keycap",
+        "role": "keycap",
+        "center": [
+          87.98999786376953,
+          -23.99000072479248
+        ],
+        "angle": 4.909169000200109e-7
+      },
+      {
+        "node": "R_SW20_Keycap",
+        "role": "keycap",
+        "center": [
+          67.93999862670898,
+          -26.579999923706055
+        ],
+        "angle": 0.2617994645010975
+      },
+      {
+        "node": "R_SW21_Keycap",
+        "role": "keycap",
+        "center": [
+          47.34000015258789,
+          -29.78999900817871
+        ],
+        "angle": 0.523598905007049
+      },
+      {
+        "node": "R_USB_C_shell",
+        "role": "metal"
+      },
+      {
+        "node": "R_Cover_standoff_0",
+        "role": "standoff"
+      },
+      {
+        "node": "R_Cover_screw_0",
+        "role": "metal"
+      },
+      {
+        "node": "R_Cover_standoff_1",
+        "role": "standoff"
+      },
+      {
+        "node": "R_Cover_screw_1",
+        "role": "metal"
+      }
+    ],
+    "shafts": [
+      {
+        "node": "L_Cover_screw_shaft_0",
+        "center": [
+          -50.67700004577637,
+          -7.9009997844696045
+        ],
+        "bottom": 16.550000762939455,
+        "top": 18.949999618530274,
+        "radius": 1,
+        "glassBottom": 17.200000762939453,
+        "glassTop": 18.700000762939453,
+        "headBottom": 18.649999618530273
+      },
+      {
+        "node": "L_Cover_screw_shaft_1",
+        "center": [
+          -36.579999923706055,
+          -17.426000118255615
+        ],
+        "bottom": 16.550000762939455,
+        "top": 18.949999618530274,
+        "radius": 1,
+        "glassBottom": 17.200000762939453,
+        "glassTop": 18.700000762939453,
+        "headBottom": 18.649999618530273
+      },
+      {
+        "node": "R_Cover_screw_shaft_0",
+        "center": [
+          50.67700004577637,
+          -7.9009997844696045
+        ],
+        "bottom": 16.550000762939455,
+        "top": 18.949999618530274,
+        "radius": 1,
+        "glassBottom": 17.200000762939453,
+        "glassTop": 18.700000762939453,
+        "headBottom": 18.649999618530273
+      },
+      {
+        "node": "R_Cover_screw_shaft_1",
+        "center": [
+          36.579999923706055,
+          -17.426000118255615
+        ],
+        "bottom": 16.550000762939455,
+        "top": 18.949999618530274,
+        "radius": 1,
+        "glassBottom": 17.200000762939453,
+        "glassTop": 18.700000762939453,
+        "headBottom": 18.649999618530273
+      }
+    ],
+    "originalBufferBytes": 14035204,
+    "addedBufferBytes": 2603288,
+    "notes": [
+      "Original BIN retained as a prefix; selected meshes/materials explicitly replaced.",
+      "Case topology, wiring, USB dimensions, glass and all physical pivots retained.",
+      "Micrograin is baked, deterministic and embedded; no custom runtime shader required."
+    ]
+  },
+  "keys": [
+    {
+      "node": "key_00",
+      "source": "L_SW2_Keycap",
+      "pivotMetres": [
+        -0.13608999633789062,
+        0.012,
+        -0.018600000381469726
+      ]
+    },
+    {
+      "node": "key_01",
+      "source": "L_SW3_Keycap",
+      "pivotMetres": [
+        -0.11808999633789062,
+        0.012000000000000002,
+        -0.03059999942779541
+      ]
+    },
+    {
+      "node": "key_02",
+      "source": "L_SW4_Keycap",
+      "pivotMetres": [
+        -0.10008999633789062,
+        0.012000000000000002,
+        -0.03659999942779541
+      ]
+    },
+    {
+      "node": "key_03",
+      "source": "L_SW5_Keycap",
+      "pivotMetres": [
+        -0.08208999633789063,
+        0.012000000000000002,
+        -0.029979999542236326
+      ]
+    },
+    {
+      "node": "key_04",
+      "source": "L_SW6_Keycap",
+      "pivotMetres": [
+        -0.06408999824523925,
+        0.012000000000000002,
+        -0.02759999942779541
+      ]
+    },
+    {
+      "node": "key_05",
+      "source": "R_SW6_Keycap",
+      "pivotMetres": [
+        0.06408999824523925,
+        0.012000000000000002,
+        -0.02759999942779541
+      ]
+    },
+    {
+      "node": "key_06",
+      "source": "R_SW5_Keycap",
+      "pivotMetres": [
+        0.08208999633789063,
+        0.012000000000000002,
+        -0.029979999542236326
+      ]
+    },
+    {
+      "node": "key_07",
+      "source": "R_SW4_Keycap",
+      "pivotMetres": [
+        0.10008999633789062,
+        0.012000000000000002,
+        -0.03659999942779541
+      ]
+    },
+    {
+      "node": "key_08",
+      "source": "R_SW3_Keycap",
+      "pivotMetres": [
+        0.11808999633789062,
+        0.012000000000000002,
+        -0.03059999942779541
+      ]
+    },
+    {
+      "node": "key_09",
+      "source": "R_SW2_Keycap",
+      "pivotMetres": [
+        0.13608999633789062,
+        0.012,
+        -0.018600000381469726
+      ]
+    },
+    {
+      "node": "key_10",
+      "source": "L_SW8_Keycap",
+      "pivotMetres": [
+        -0.13608999633789062,
+        0.012,
+        -0.0016000001430511472
+      ]
+    },
+    {
+      "node": "key_11",
+      "source": "L_SW9_Keycap",
+      "pivotMetres": [
+        -0.11808999633789062,
+        0.012,
+        -0.013600000143051148
+      ]
+    },
+    {
+      "node": "key_12",
+      "source": "L_SW10_Keycap",
+      "pivotMetres": [
+        -0.10008999633789062,
+        0.012,
+        -0.019600000381469727
+      ]
+    },
+    {
+      "node": "key_13",
+      "source": "L_SW11_Keycap",
+      "pivotMetres": [
+        -0.08208999633789063,
+        0.012,
+        -0.012979999780654908
+      ]
+    },
+    {
+      "node": "key_14",
+      "source": "L_SW12_Keycap",
+      "pivotMetres": [
+        -0.06408999824523925,
+        0.012,
+        -0.010600000143051147
+      ]
+    },
+    {
+      "node": "key_15",
+      "source": "R_SW12_Keycap",
+      "pivotMetres": [
+        0.06408999824523925,
+        0.012,
+        -0.010600000143051147
+      ]
+    },
+    {
+      "node": "key_16",
+      "source": "R_SW11_Keycap",
+      "pivotMetres": [
+        0.08208999633789063,
+        0.012,
+        -0.012979999780654908
+      ]
+    },
+    {
+      "node": "key_17",
+      "source": "R_SW10_Keycap",
+      "pivotMetres": [
+        0.10008999633789062,
+        0.012,
+        -0.019600000381469727
+      ]
+    },
+    {
+      "node": "key_18",
+      "source": "R_SW9_Keycap",
+      "pivotMetres": [
+        0.11808999633789062,
+        0.012,
+        -0.013600000143051148
+      ]
+    },
+    {
+      "node": "key_19",
+      "source": "R_SW8_Keycap",
+      "pivotMetres": [
+        0.13608999633789062,
+        0.012,
+        -0.0016000001430511472
+      ]
+    },
+    {
+      "node": "key_20",
+      "source": "L_SW14_Keycap",
+      "pivotMetres": [
+        -0.13608999633789062,
+        0.011999999999999999,
+        0.015399999856948853
+      ]
+    },
+    {
+      "node": "key_21",
+      "source": "L_SW15_Keycap",
+      "pivotMetres": [
+        -0.11808999633789062,
+        0.012,
+        0.003399999856948854
+      ]
+    },
+    {
+      "node": "key_22",
+      "source": "L_SW16_Keycap",
+      "pivotMetres": [
+        -0.10008999633789062,
+        0.012,
+        -0.0026000001430511476
+      ]
+    },
+    {
+      "node": "key_23",
+      "source": "L_SW17_Keycap",
+      "pivotMetres": [
+        -0.08208999633789063,
+        0.012,
+        0.0040249998569488535
+      ]
+    },
+    {
+      "node": "key_24",
+      "source": "L_SW18_Keycap",
+      "pivotMetres": [
+        -0.06408999824523925,
+        0.011999999999999999,
+        0.00639999979734421
+      ]
+    },
+    {
+      "node": "key_25",
+      "source": "R_SW18_Keycap",
+      "pivotMetres": [
+        0.06408999824523925,
+        0.011999999999999999,
+        0.00639999979734421
+      ]
+    },
+    {
+      "node": "key_26",
+      "source": "R_SW17_Keycap",
+      "pivotMetres": [
+        0.08208999633789063,
+        0.012,
+        0.0040249998569488535
+      ]
+    },
+    {
+      "node": "key_27",
+      "source": "R_SW16_Keycap",
+      "pivotMetres": [
+        0.10008999633789062,
+        0.012,
+        -0.0026000001430511476
+      ]
+    },
+    {
+      "node": "key_28",
+      "source": "R_SW15_Keycap",
+      "pivotMetres": [
+        0.11808999633789062,
+        0.012,
+        0.003399999856948854
+      ]
+    },
+    {
+      "node": "key_29",
+      "source": "R_SW14_Keycap",
+      "pivotMetres": [
+        0.13608999633789062,
+        0.011999999999999999,
+        0.015399999856948853
+      ]
+    },
+    {
+      "node": "key_30",
+      "source": "L_SW19_Keycap",
+      "pivotMetres": [
+        -0.08798999786376954,
+        0.011999999999999999,
+        0.02399000072479248
+      ]
+    },
+    {
+      "node": "key_31",
+      "source": "L_SW20_Keycap",
+      "pivotMetres": [
+        -0.06793999862670899,
+        0.011999999999999999,
+        0.026579999923706056
+      ]
+    },
+    {
+      "node": "key_32",
+      "source": "L_SW21_Keycap",
+      "pivotMetres": [
+        -0.047340000152587894,
+        0.011999999999999999,
+        0.029789999008178712
+      ]
+    },
+    {
+      "node": "key_33",
+      "source": "R_SW21_Keycap",
+      "pivotMetres": [
+        0.047340000152587894,
+        0.011999999999999999,
+        0.029789999008178712
+      ]
+    },
+    {
+      "node": "key_34",
+      "source": "R_SW20_Keycap",
+      "pivotMetres": [
+        0.06793999862670899,
+        0.011999999999999999,
+        0.026579999923706056
+      ]
+    },
+    {
+      "node": "key_35",
+      "source": "R_SW19_Keycap",
+      "pivotMetres": [
+        0.08798999786376954,
+        0.011999999999999999,
+        0.02399000072479248
+      ]
+    }
+  ],
+  "displays": {
+    "left": {
+      "source": "L_Display_photo_graphic",
+      "node": "display_screen_left",
+      "surfaceSizeMm": [
+        10.90000152587891,
+        25.499999523162845
+      ],
+      "surfaceWorldMetres": [
+        -0.043799999237060544,
+        0.01651000022888184,
+        -0.016899999856948855
+      ]
+    },
+    "right": {
+      "source": "R_Display_photo_graphic",
+      "node": "display_screen_right",
+      "surfaceSizeMm": [
+        10.90000152587891,
+        25.499999523162845
+      ],
+      "surfaceWorldMetres": [
+        0.043799999237060544,
+        0.01651000022888184,
+        -0.016899999856948855
+      ]
+    }
+  },
+  "sourceBytes": 14262280,
+  "outputBytes": 16935940,
+  "triangles": {
+    "stored": 973424,
+    "effective": 973424,
+    "caseStored": 671344,
+    "caseEffective": 671344,
+    "caseBudget": 671344,
+    "degeneratesStored": 0,
+    "degeneratesEffective": 0,
+    "degenerateLimit": 0,
+    "aboveAspectLimitStored": 18408,
+    "aboveAspectLimitEffective": 18408,
+    "aspectLimit": 1000,
+    "skinnyTriangleLimit": 18408,
+    "aspect": {
+      "samples": 973424,
+      "p50": 2.000373234996779,
+      "p95": 60.89447322456554,
+      "p99": 4803.979296225029,
+      "max": 807431.7172772109
+    }
+  },
+  "inheritedGeometryLimits": {
+    "caseEffectiveTriangles": 671344,
+    "skinnyTriangles": 18408,
+    "degenerateTriangles": 0
+  }
+}

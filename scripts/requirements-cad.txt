@@ -1,0 +1,3 @@
+# Optional authoring dependency for scripts/tessellate-step.py.
+# Normal PRETYPIST development, tests, and builds do not install this file.
+cadquery-ocp==8.0.1.0.0

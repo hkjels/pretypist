@@ -1,0 +1,18 @@
+{
+  "authoringRevision": 1,
+  "editableTopologyScope": "polygons weighted by visible object use below keyboard root",
+  "meshObjects": 262,
+  "uniqueMeshes": 73,
+  "polygons": {
+    "quads": 8244,
+    "triangles": 0,
+    "ngons": 64,
+    "total": 8308
+  },
+  "quadRatio": 0.992297,
+  "requiredNodes": {
+    "expected": 41,
+    "missing": []
+  },
+  "note": "The GLB transport is triangulated by the glTF exporter; quad topology is preserved in model.blend."
+}

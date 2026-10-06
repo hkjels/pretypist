@@ -1,0 +1,760 @@
+{:pretypist/format-version 1
+
+ :package/id "modified-engram"
+ :package/name "Modified Engram"
+ :package/revision 12
+ :package/author "Henrik"
+ :package/license "Configuration data: repository-owned; derived case geometry: CERN-OHL-P-2.0"
+
+ :layout/languages #{:en :nb}
+ :layout/default-profile :mac-no
+ :layout/default-layer :base
+ :layout/layer-order [:base :num :sym :nav :mouse]
+ :layout/host-selection
+ {:kind :bluetooth-profile
+  :persistent true
+  :usb-follows-selected-profile true
+  :profiles {0 :mac-no
+             1 :win-no
+             2 :mac-no
+             3 :mac-no
+             4 :mac-no}}
+ :layout/firmware-layer-indices
+ {:base 0
+  :windows-overlay 1
+  :num 2
+  :sym-mac 3
+  :sym-win 4
+  :nav 5
+  :mouse 6}
+
+ ;; Optional versioned visual identity. Only reviewed semantic #RRGGBB tokens
+ ;; are accepted; packages cannot provide CSS, fonts, URLs, selectors, or
+ ;; renderer parameters. Missing tokens and schemes use PRETYPIST defaults.
+ :theme
+ {:version 1
+  :schemes
+  {:dark
+   {:background "#090a0f"
+    :foreground "#f1eee7"
+    :muted-foreground "#686a75"
+    :accent "#8b83ff"
+    :error "#b96f72"
+    :focus "#aaa4ff"
+    :prose-current "#f1eee7"
+    :prose-completed "#74757e"
+    :prose-upcoming "#686a75"
+    :panel "#111218"}
+   :light
+   {:background "#f7f6f2"
+    :foreground "#111216"
+    :muted-foreground "#616269"
+    :accent "#5b50c8"
+    :error "#994b52"
+    :focus "#493db9"
+    :prose-current "#111216"
+    :prose-completed "#6b6c72"
+    :prose-upcoming "#595a62"
+    :panel "#ebe9e3"}}
+  :layer-colors
+  {:base "#c8c4bd"
+   :num "#d6a75d"
+   :sym "#8b83ff"
+   :nav "#6297d5"
+   :mouse "#54aaa2"}}
+
+ :model
+ {:file "model.glb"
+  :material-policy :preserve
+  :root-node "keyboard"
+  :left-half-node "half_left"
+  :right-half-node "half_right"
+  :case-nodes ["case_left" "case_right"]
+  :key-node-prefix "key_"
+  :units :meters
+  :up-axis :y
+  :embedded-resources-only true
+  :required-nodes
+  ["keyboard" "half_left" "half_right" "case_left" "case_right"
+   "display_screen_left" "display_screen_right"
+   "key_00" "key_01" "key_02" "key_03" "key_04" "key_05"
+   "key_06" "key_07" "key_08" "key_09" "key_10" "key_11"
+   "key_12" "key_13" "key_14" "key_15" "key_16" "key_17"
+   "key_18" "key_19" "key_20" "key_21" "key_22" "key_23"
+   "key_24" "key_25" "key_26" "key_27" "key_28" "key_29"
+   "key_30" "key_31" "key_32" "key_33" "key_34" "key_35"]}
+
+ ;; Browser builds cannot read ZMK battery, Bluetooth bond, or split-link
+ ;; telemetry.  Version 1 therefore declares those values as simulated.  Live
+ ;; typing WPM and PRETYPIST's selected/inferred firmware layer may replace
+ ;; their defaults without implying access to raw keyboard telemetry.
+ :batteries
+ {:left  {:kind :li-po :telemetry :simulated}
+  :right {:kind :li-po :telemetry :simulated}}
+
+ :displays
+ {:left
+  {:kind :nice-view
+   :node "display_screen_left"
+   :role :central
+   :resolution [160 68]
+   :surface-size-mm [10.9 25.5]
+   :orientation :portrait
+   :template :zmk/nice-view-status-v0.3
+   :battery :left
+   :widgets [:battery :endpoint :bluetooth-profiles :wpm :layer]}
+
+  :right
+  {:kind :nice-view
+   :node "display_screen_right"
+   :role :peripheral
+   :resolution [160 68]
+   :surface-size-mm [10.9 25.5]
+   :orientation :portrait
+   :template :zmk/nice-view-peripheral-v0.3
+   :battery :right
+   :widgets [:battery :split-connection :peripheral-art]}}
+
+ :display/default-status
+ {:source :simulated
+  :batteries
+  {:left  {:percent 82 :usb-powered? false}
+   :right {:percent 76 :usb-powered? false}}
+  :endpoint {:transport :ble :profile 0}
+  :bluetooth-profiles
+  [{:index 0 :selected? true  :bonded? true  :connected? true}
+   {:index 1 :selected? false :bonded? false :connected? false}
+   {:index 2 :selected? false :bonded? false :connected? false}
+   {:index 3 :selected? false :bonded? false :connected? false}
+   {:index 4 :selected? false :bonded? false :connected? false}]
+  :wpm {:current 42
+        :history [0 0 12 18 24 31 36 39 42 42]}
+  :layer :base
+  :split-connection :connected
+  :peripheral-art :balloon}
+
+ ;; PRETYPIST indices are contiguous and follow visual outside-to-inside order
+ ;; on the left and inside-to-outside order on the right. :firmware-position is
+ ;; the corresponding position in ZMK's 42-position Corne-compatible transform.
+ :keys
+ [{:id :k00 :index 0  :node "key_00" :hand :left  :row 0 :column 0 :finger :left-pinky  :firmware-position 1  :observed-codes ["KeyB"]}
+  {:id :k01 :index 1  :node "key_01" :hand :left  :row 0 :column 1 :finger :left-ring   :firmware-position 2  :observed-codes ["KeyY"]}
+  {:id :k02 :index 2  :node "key_02" :hand :left  :row 0 :column 2 :finger :left-middle :firmware-position 3  :observed-codes ["KeyO"]}
+  {:id :k03 :index 3  :node "key_03" :hand :left  :row 0 :column 3 :finger :left-index  :firmware-position 4  :observed-codes ["KeyU"]}
+  {:id :k04 :index 4  :node "key_04" :hand :left  :row 0 :column 4 :finger :left-index  :firmware-position 5}
+
+  {:id :k05 :index 5  :node "key_05" :hand :right :row 0 :column 0 :finger :right-index  :firmware-position 6  :observed-codes ["KeyL"]}
+  {:id :k06 :index 6  :node "key_06" :hand :right :row 0 :column 1 :finger :right-index  :firmware-position 7  :observed-codes ["KeyD"]}
+  {:id :k07 :index 7  :node "key_07" :hand :right :row 0 :column 2 :finger :right-middle :firmware-position 8  :observed-codes ["KeyW"]}
+  {:id :k08 :index 8  :node "key_08" :hand :right :row 0 :column 3 :finger :right-ring   :firmware-position 9  :observed-codes ["KeyV"]}
+  {:id :k09 :index 9  :node "key_09" :hand :right :row 0 :column 4 :finger :right-pinky  :firmware-position 10 :observed-codes ["KeyZ"]}
+
+  {:id :k10 :index 10 :node "key_10" :hand :left  :row 1 :column 0 :finger :left-pinky  :firmware-position 13 :observed-codes ["KeyC"]}
+  {:id :k11 :index 11 :node "key_11" :hand :left  :row 1 :column 1 :finger :left-ring   :firmware-position 14 :observed-codes ["KeyI" "MetaLeft"]}
+  {:id :k12 :index 12 :node "key_12" :hand :left  :row 1 :column 2 :finger :left-middle :firmware-position 15 :observed-codes ["KeyE" "AltLeft"]}
+  {:id :k13 :index 13 :node "key_13" :hand :left  :row 1 :column 3 :finger :left-index  :firmware-position 16 :observed-codes ["KeyA"]}
+  {:id :k14 :index 14 :node "key_14" :hand :left  :row 1 :column 4 :finger :left-index  :firmware-position 17 :observed-codes ["Period" "Comma"]}
+
+  {:id :k15 :index 15 :node "key_15" :hand :right :row 1 :column 0 :finger :right-index  :firmware-position 18 :observed-codes ["KeyH"]}
+  {:id :k16 :index 16 :node "key_16" :hand :right :row 1 :column 1 :finger :right-index  :firmware-position 19 :observed-codes ["KeyT"]}
+  {:id :k17 :index 17 :node "key_17" :hand :right :row 1 :column 2 :finger :right-middle :firmware-position 20 :observed-codes ["KeyS"]}
+  {:id :k18 :index 18 :node "key_18" :hand :right :row 1 :column 3 :finger :right-ring   :firmware-position 21 :observed-codes ["KeyN"]}
+  {:id :k19 :index 19 :node "key_19" :hand :right :row 1 :column 4 :finger :right-pinky  :firmware-position 22 :observed-codes ["KeyQ"]}
+
+  {:id :k20 :index 20 :node "key_20" :hand :left  :row 2 :column 0 :finger :left-pinky  :firmware-position 25 :observed-codes ["KeyG"]}
+  {:id :k21 :index 21 :node "key_21" :hand :left  :row 2 :column 1 :finger :left-ring   :firmware-position 26 :observed-codes ["KeyX"]}
+  {:id :k22 :index 22 :node "key_22" :hand :left  :row 2 :column 2 :finger :left-middle :firmware-position 27 :observed-codes ["KeyJ"]}
+  {:id :k23 :index 23 :node "key_23" :hand :left  :row 2 :column 3 :finger :left-index  :firmware-position 28 :observed-codes ["KeyK"]}
+  {:id :k24 :index 24 :node "key_24" :hand :left  :row 2 :column 4 :finger :left-index  :firmware-position 29 :observed-codes ["Slash"]}
+
+  {:id :k25 :index 25 :node "key_25" :hand :right :row 2 :column 0 :finger :right-index  :firmware-position 30 :observed-codes ["KeyR"]}
+  {:id :k26 :index 26 :node "key_26" :hand :right :row 2 :column 1 :finger :right-index  :firmware-position 31 :observed-codes ["KeyM"]}
+  {:id :k27 :index 27 :node "key_27" :hand :right :row 2 :column 2 :finger :right-middle :firmware-position 32 :observed-codes ["KeyF"]}
+  {:id :k28 :index 28 :node "key_28" :hand :right :row 2 :column 3 :finger :right-ring   :firmware-position 33 :observed-codes ["KeyP"]}
+  {:id :k29 :index 29 :node "key_29" :hand :right :row 2 :column 4 :finger :right-pinky  :firmware-position 34}
+
+  {:id :k30 :index 30 :node "key_30" :hand :left  :row 3 :column 0 :finger :left-thumb  :firmware-position 38 :observed-codes ["ShiftLeft"]}
+  {:id :k31 :index 31 :node "key_31" :hand :left  :row 3 :column 1 :finger :left-thumb  :firmware-position 37 :observed-codes ["Space"]}
+  {:id :k32 :index 32 :node "key_32" :hand :left  :row 3 :column 2 :finger :left-thumb  :firmware-position 36}
+  {:id :k33 :index 33 :node "key_33" :hand :right :row 3 :column 0 :finger :right-thumb :firmware-position 39 :observed-codes ["ControlRight"]}
+  {:id :k34 :index 34 :node "key_34" :hand :right :row 3 :column 1 :finger :right-thumb :firmware-position 40 :observed-codes ["Enter"]}
+  {:id :k35 :index 35 :node "key_35" :hand :right :row 3 :column 2 :finger :right-thumb :firmware-position 41 :observed-codes ["AltRight"]}]
+
+ :behaviors
+ {:home-row-mod
+  {:type :hold-tap
+   :flavor :balanced
+   :tapping-term-ms 230
+   :quick-tap-ms 150
+   :require-prior-idle-ms 100
+   :hold-trigger :opposite-hand
+   :hold-trigger-on-release true}
+
+  :num-latch
+  {:type :hold-tap
+   :flavor :tap-preferred
+   :tapping-term-ms 230
+   :tap [:one-shot :layer :num]
+   :hold [:layer :toggle :num]}
+
+  :dot-dance
+  {:type :tap-dance
+   :flavor :tap-preferred
+   :tapping-term-ms 230
+   :slots [:tap :hold :double-tap :double-hold]}
+
+  :quote-dance
+  {:type :tap-dance
+   :flavor :tap-preferred
+   :tapping-term-ms 230
+   :slots [:tap :hold :double-tap :double-hold]
+   :host-aware true}
+
+  :dash-dance
+  {:type :tap-dance
+   :flavor :tap-preferred
+   :tapping-term-ms 230
+   :slots [:tap :hold :double-tap :double-hold]
+   :host-aware true}
+
+  :dollar-euro
+  {:type :mod-morph
+   :modifiers #{:left-shift :right-shift}
+   :mask-modifiers true
+   :normal [:text "$"]
+   :modified [:text "€"]
+   :host-aware true}
+
+  :format-block
+  {:type :macro
+   :description "Insert two lines of three literal backticks and move the caret inside"
+   :wait-ms 10
+   :tap-ms 10
+   :output "```\n```\n"
+   :after [[:key :arrow-left] [:key :arrow-left] [:key :arrow-left]
+           [:key :arrow-left] [:key :arrow-left]]
+   :host-aware true}
+
+  :literal-dead-key
+  {:type :macro
+   :description "Emit a Norwegian dead-key position followed by Space"
+   :host-aware true}
+
+  :clear-profile-hold
+  {:type :hold-tap
+   :flavor :tap-preferred
+   :tapping-term-ms 700
+   :tap [:disabled]
+   :hold [:bluetooth :clear-selected-profile]}}
+
+ :layers
+ {:base
+  {:name "Base"
+   :color "#f1eee7"
+   :bindings
+   {:k00 {:legend "B" :actions {:tap [:text "b"]}}
+    :k01 {:legend "Y" :actions {:tap [:text "y"]}}
+    :k02 {:legend "O" :actions {:tap [:text "o"]}}
+    :k03 {:legend "U" :actions {:tap [:text "u"]}}
+    :k04 {:legend "' / ´"
+          :behavior :quote-dance
+          :firmware-behavior :quote-dance-mac
+          :actions {:tap [:text "'"]
+                    :hold [:text "|"]
+                    :double-tap [:dead-key "´"]
+                    :double-hold [:macro :format-block]}
+          :firmware-emissions {:tap :apostrophe
+                               :hold :pipe
+                               :double-tap :acute
+                               :double-hold :format-block}}
+
+    :k05 {:legend "L" :actions {:tap [:text "l"]}}
+    :k06 {:legend "D" :actions {:tap [:text "d"]}}
+    :k07 {:legend "W" :actions {:tap [:text "w"]}}
+    :k08 {:legend "V" :actions {:tap [:text "v"]}}
+    :k09 {:legend "Z" :actions {:tap [:text "z"]}}
+
+    :k10 {:legend "C" :actions {:tap [:text "c"]}}
+    :k11 {:legend "I / GUI"
+          :behavior :home-row-mod
+          :actions {:tap [:text "i"] :hold [:modifier :left-gui]}}
+    :k12 {:legend "E / Alt"
+          :behavior :home-row-mod
+          :actions {:tap [:text "e"] :hold [:modifier :left-alt]}}
+    :k13 {:legend "A" :actions {:tap [:text "a"]}}
+    :k14 {:legend ". / ,"
+          :behavior :dot-dance
+          :actions {:tap [:text "."]
+                    :hold [:disabled]
+                    :double-tap [:text ","]
+                    :double-hold [:disabled]}}
+
+    :k15 {:legend "H" :actions {:tap [:text "h"]}}
+    :k16 {:legend "T" :actions {:tap [:text "t"]}}
+    :k17 {:legend "S" :actions {:tap [:text "s"]}}
+    :k18 {:legend "N" :actions {:tap [:text "n"]}}
+    :k19 {:legend "Q" :actions {:tap [:text "q"]}}
+
+    :k20 {:legend "G" :actions {:tap [:text "g"]}}
+    :k21 {:legend "X" :actions {:tap [:text "x"]}}
+    :k22 {:legend "J" :actions {:tap [:text "j"]}}
+    :k23 {:legend "K" :actions {:tap [:text "k"]}}
+    :k24 {:legend "- / →"
+          :behavior :dash-dance
+          :firmware-behavior :dash-dance-mac
+          :actions {:tap [:text "-"]
+                    :hold [:text "->"]
+                    :double-tap [:text "_"]
+                    :double-hold [:text "->>"]}
+          :firmware-emissions {:tap :hyphen
+                               :hold :arrow
+                               :double-tap :underscore
+                               :double-hold :fat-arrow}}
+
+    :k25 {:legend "R" :actions {:tap [:text "r"]}}
+    :k26 {:legend "M" :actions {:tap [:text "m"]}}
+    :k27 {:legend "F" :actions {:tap [:text "f"]}}
+    :k28 {:legend "P" :actions {:tap [:text "p"]}}
+    :k29 {:legend "NUM*" :behavior :num-latch
+          :actions {:tap [:one-shot :layer :num]
+                    :hold [:layer :toggle :num]}}
+
+    :k30 {:legend "OS Shift"
+          :actions {:tap [:one-shot :modifier :left-shift]}}
+    :k31 {:legend "Space / NAV"
+          :actions {:tap [:text " "] :hold [:layer :momentary :nav]}}
+    :k32 {:legend "OS SYM"
+          :firmware-behavior :one-shot-sym-mac
+          :actions {:tap [:one-shot :layer :sym]}}
+    :k33 {:legend "OS Ctrl" :actions {:tap [:one-shot :modifier :right-control]}}
+    :k34 {:legend "Enter / NUM"
+          :actions {:tap [:key :enter] :hold [:layer :momentary :num]}}
+    :k35 {:legend "RAlt" :actions {:tap [:modifier :right-alt]}}}}
+
+  :num
+  {:name "NUM"
+   :color "#d4a15c"
+   :bindings
+   {:k00 {:legend "Esc" :actions {:tap [:key :escape]}}
+    :k01 {:legend "" :actions {:tap [:disabled]}}
+    :k02 {:legend "Ø" :actions {:tap [:text "ø"]} :firmware-action [:key :semicolon]}
+    :k03 {:legend "" :actions {:tap [:disabled]}}
+    :k04 {:legend "▽" :actions {:tap [:transparent]}}
+
+    :k05 {:legend "7" :actions {:tap [:text "7"]}}
+    :k06 {:legend "8" :actions {:tap [:text "8"]}}
+    :k07 {:legend "9" :actions {:tap [:text "9"]}}
+    :k08 {:legend "KP /" :actions {:tap [:text "/"]} :firmware-action [:key :keypad-slash]}
+    :k09 {:legend "KP -" :actions {:tap [:text "-"]} :firmware-action [:key :keypad-minus]}
+
+    :k10 {:legend "Tab" :actions {:tap [:key :tab]}}
+    :k11 {:legend "GUI" :actions {:tap [:modifier :left-gui]}}
+    :k12 {:legend "Æ" :actions {:tap [:text "æ"]} :firmware-action [:key :single-quote]}
+    :k13 {:legend "Bksp" :actions {:tap [:key :backspace]}}
+    :k14 {:legend "▽" :actions {:tap [:transparent]}}
+
+    :k15 {:legend "4" :actions {:tap [:text "4"]}}
+    :k16 {:legend "5" :actions {:tap [:text "5"]}}
+    :k17 {:legend "6" :actions {:tap [:text "6"]}}
+    :k18 {:legend "KP *" :actions {:tap [:text "*"]} :firmware-action [:key :keypad-multiply]}
+    :k19 {:legend "KP +" :actions {:tap [:text "+"]} :firmware-action [:key :keypad-plus]}
+
+    :k20 {:legend "" :actions {:tap [:disabled]}}
+    :k21 {:legend "" :actions {:tap [:disabled]}}
+    :k22 {:legend "Å" :actions {:tap [:text "å"]} :firmware-action [:key :left-bracket]}
+    :k23 {:legend "Delete" :actions {:tap [:key :delete]}}
+    :k24 {:legend "▽" :actions {:tap [:transparent]}}
+
+    :k25 {:legend "1" :actions {:tap [:text "1"]}}
+    :k26 {:legend "2" :actions {:tap [:text "2"]}}
+    :k27 {:legend "3" :actions {:tap [:text "3"]}}
+    :k28 {:legend "KP ." :actions {:tap [:text "."]} :firmware-action [:key :keypad-dot]}
+    :k29 {:legend "Exit" :actions {:tap [:layer :toggle :num]}}
+
+    :k30 {:legend "▽" :actions {:tap [:transparent]}}
+    :k31 {:legend "▽" :actions {:tap [:transparent]}}
+    :k32 {:legend "▽" :actions {:tap [:transparent]}}
+    :k33 {:legend "▽" :actions {:tap [:transparent]}}
+    :k34 {:legend "KP Enter" :actions {:tap [:key :keypad-enter]}}
+    :k35 {:legend "0" :actions {:tap [:text "0"]}}}}
+
+  :sym
+  {:name "SYM"
+   :color "#8b83ff"
+   :profile-backed-layers {:mac-no :sym-mac :win-no :sym-win}
+   :bindings
+   {:k00 {:legend "!" :actions {:tap [:text "!"]} :firmware-emissions {:tap :exclamation}}
+    :k01 {:legend "#" :actions {:tap [:text "#"]} :firmware-emissions {:tap :hash}}
+    :k02 {:legend "%" :actions {:tap [:text "%"]} :firmware-emissions {:tap :percent}}
+    :k03 {:legend "~" :behavior :literal-dead-key :actions {:tap [:text "~"]} :firmware-emissions {:tap :tilde}}
+    :k04 {:legend "@" :actions {:tap [:text "@"]} :firmware-emissions {:tap :at}}
+
+    :k05 {:legend "\"" :actions {:tap [:text "\""]} :firmware-emissions {:tap :double-quote}}
+    :k06 {:legend "$ / €" :behavior :dollar-euro
+          :actions {:tap [:text "$"] :shift-tap [:text "€"]}
+          :firmware-emissions {:tap :dollar :shift-tap :euro}}
+    :k07 {:legend "?" :actions {:tap [:text "?"]} :firmware-emissions {:tap :question-mark}}
+    :k08 {:legend "&" :actions {:tap [:text "&"]} :firmware-emissions {:tap :ampersand}}
+    :k09 {:legend "^" :behavior :literal-dead-key :actions {:tap [:text "^"]} :firmware-emissions {:tap :caret}}
+
+    :k10 {:legend "<" :actions {:tap [:text "<"]} :firmware-emissions {:tap :less-than}}
+    :k11 {:legend "/" :actions {:tap [:text "/"]} :firmware-emissions {:tap :slash}}
+    :k12 {:legend "{" :actions {:tap [:text "{"]} :firmware-emissions {:tap :left-brace}}
+    :k13 {:legend "[" :actions {:tap [:text "["]} :firmware-emissions {:tap :left-bracket}}
+    :k14 {:legend "(" :actions {:tap [:text "("]} :firmware-emissions {:tap :left-paren}}
+
+    :k15 {:legend ")" :actions {:tap [:text ")"]} :firmware-emissions {:tap :right-paren}}
+    :k16 {:legend "]" :actions {:tap [:text "]"]} :firmware-emissions {:tap :right-bracket}}
+    :k17 {:legend "}" :actions {:tap [:text "}"]} :firmware-emissions {:tap :right-brace}}
+    :k18 {:legend "\\" :actions {:tap [:text "\\"]} :firmware-emissions {:tap :backslash}}
+    :k19 {:legend ">" :actions {:tap [:text ">"]} :firmware-emissions {:tap :greater-than}}
+
+    :k20 {:legend ";" :actions {:tap [:text ";"]} :firmware-emissions {:tap :semicolon}}
+    :k21 {:legend ":" :actions {:tap [:text ":"]} :firmware-emissions {:tap :colon}}
+    :k22 {:legend "*" :actions {:tap [:text "*"]} :firmware-emissions {:tap :asterisk}}
+    :k23 {:legend "`" :behavior :literal-dead-key :actions {:tap [:text "`"]} :firmware-emissions {:tap :backtick}}
+    :k24 {:legend "▽" :actions {:tap [:transparent]}}
+
+    :k25 {:legend "=" :actions {:tap [:text "="]} :firmware-emissions {:tap :equals}}
+    :k26 {:legend "" :actions {:tap [:disabled]}}
+    :k27 {:legend "" :actions {:tap [:disabled]}}
+    :k28 {:legend "" :actions {:tap [:disabled]}}
+    :k29 {:legend "+" :actions {:tap [:text "+"]} :firmware-emissions {:tap :plus}}
+
+    :k30 {:legend "OS Shift"
+          :actions {:tap [:one-shot :modifier :left-shift]}
+          :firmware-action [:transparent]
+          :inherited-from [:base :k30]}
+    :k31 {:legend "Space" :actions {:tap [:text " "]}}
+    :k32 {:legend "GUI" :actions {:tap [:modifier :left-gui]}}
+    :k33 {:legend "▽" :actions {:tap [:transparent]}}
+    :k34 {:legend "Enter" :actions {:tap [:key :enter]}}
+    :k35 {:legend "RAlt" :actions {:tap [:modifier :right-alt]}}}}
+
+  :nav
+  {:name "NAV"
+   :color "#6f9ee8"
+   :bindings
+   {:k00 {:legend "Previous" :actions {:tap [:media :previous]}}
+    :k01 {:legend "Play/Pause" :actions {:tap [:media :play-pause]}}
+    :k02 {:legend "Next" :actions {:tap [:media :next]}}
+    :k03 {:legend "" :actions {:tap [:disabled]}}
+    :k04 {:legend "Esc" :actions {:tap [:key :escape]}}
+
+    :k05 {:legend "" :actions {:tap [:disabled]}}
+    :k06 {:legend "" :actions {:tap [:disabled]}}
+    :k07 {:legend "↑" :actions {:tap [:key :arrow-up]}}
+    :k08 {:legend "" :actions {:tap [:disabled]}}
+    :k09 {:legend "" :actions {:tap [:disabled]}}
+
+    :k10 {:legend "Volume −" :actions {:tap [:media :volume-down]}}
+    :k11 {:legend "Mute" :actions {:tap [:media :mute]}}
+    :k12 {:legend "Volume +" :actions {:tap [:media :volume-up]}}
+    :k13 {:legend "Bksp" :actions {:tap [:key :backspace]}}
+    :k14 {:legend "Tab" :actions {:tap [:key :tab]}}
+
+    :k15 {:legend "" :actions {:tap [:disabled]}}
+    :k16 {:legend "←" :actions {:tap [:key :arrow-left]}}
+    :k17 {:legend "↓" :actions {:tap [:key :arrow-down]}}
+    :k18 {:legend "→" :actions {:tap [:key :arrow-right]}}
+    :k19 {:legend "" :actions {:tap [:disabled]}}
+
+    :k20 {:legend "GUI" :actions {:tap [:modifier :left-gui]}}
+    :k21 {:legend "" :actions {:tap [:disabled]}}
+    :k22 {:legend "" :actions {:tap [:disabled]}}
+    :k23 {:legend "Delete" :actions {:tap [:key :delete]}}
+    :k24 {:legend "" :actions {:tap [:disabled]}}
+
+    :k25 {:legend "" :actions {:tap [:disabled]}}
+    :k26 {:legend "" :actions {:tap [:disabled]}}
+    :k27 {:legend "" :actions {:tap [:disabled]}}
+    :k28 {:legend "" :actions {:tap [:disabled]}}
+    :k29 {:legend "" :actions {:tap [:disabled]}}
+
+    :k30 {:legend "OS Shift"
+          :actions {:tap [:one-shot :modifier :left-shift]}
+          :firmware-action [:transparent]
+          :inherited-from [:base :k30]}
+    :k31 {:legend "Space" :actions {:tap [:text " "]}}
+    :k32 {:legend "MOUSE on" :actions {:tap [:layer :toggle :mouse]}}
+    :k33 {:legend "▽" :actions {:tap [:transparent]}}
+    :k34 {:legend "Enter" :actions {:tap [:key :enter]}}
+    :k35 {:legend "RAlt" :actions {:tap [:modifier :right-alt]}}}}
+
+  :mouse
+  {:name "MOUSE"
+   :color "#54b8ad"
+   :bindings
+   {:k00 {:legend "BT 1 · Mac" :actions {:tap [:bluetooth :select-profile 0]}}
+    :k01 {:legend "BT 2 · Win" :actions {:tap [:bluetooth :select-profile 1]}}
+    :k02 {:legend "BT 3" :actions {:tap [:bluetooth :select-profile 2]}}
+    :k03 {:legend "BT 4" :actions {:tap [:bluetooth :select-profile 3]}}
+    :k04 {:legend "BT 5" :actions {:tap [:bluetooth :select-profile 4]}}
+
+    :k05 {:legend "" :actions {:tap [:disabled]}}
+    :k06 {:legend "Scroll ↑" :actions {:hold [:mouse :scroll :up]}}
+    :k07 {:legend "Move ↑" :actions {:hold [:mouse :move :up]}}
+    :k08 {:legend "Scroll ↓" :actions {:hold [:mouse :scroll :down]}}
+    :k09 {:legend "" :actions {:tap [:disabled]}}
+
+    :k10 {:legend "" :actions {:tap [:disabled]}}
+    :k11 {:legend "" :actions {:tap [:disabled]}}
+    :k12 {:legend "" :actions {:tap [:disabled]}}
+    :k13 {:legend "Bksp" :actions {:tap [:key :backspace]}}
+    :k14 {:legend "" :actions {:tap [:disabled]}}
+
+    :k15 {:legend "" :actions {:tap [:disabled]}}
+    :k16 {:legend "Move ←" :actions {:hold [:mouse :move :left]}}
+    :k17 {:legend "Move ↓" :actions {:hold [:mouse :move :down]}}
+    :k18 {:legend "Move →" :actions {:hold [:mouse :move :right]}}
+    :k19 {:legend "" :actions {:tap [:disabled]}}
+
+    :k20 {:legend "Clear L" :actions {:tap [:disabled]} :combo-part :clear-active-profile}
+    :k21 {:legend "" :actions {:tap [:disabled]}}
+    :k22 {:legend "" :actions {:tap [:disabled]}}
+    :k23 {:legend "Delete" :actions {:tap [:key :delete]}}
+    :k24 {:legend "" :actions {:tap [:disabled]}}
+
+    :k25 {:legend "" :actions {:tap [:disabled]}}
+    :k26 {:legend "" :actions {:tap [:disabled]}}
+    :k27 {:legend "" :actions {:tap [:disabled]}}
+    :k28 {:legend "" :actions {:tap [:disabled]}}
+    :k29 {:legend "Clear R" :actions {:tap [:disabled]} :combo-part :clear-active-profile}
+
+    :k30 {:legend "OS Shift"
+          :actions {:tap [:one-shot :modifier :left-shift]}
+          :firmware-action [:transparent]
+          :inherited-from [:base :k30]}
+    :k31 {:legend "" :actions {:tap [:disabled]}}
+    :k32 {:legend "Exit MOUSE" :actions {:tap [:layer :toggle :mouse]}}
+    :k33 {:legend "Button 1" :actions {:tap [:mouse :button :left]
+                                        :hold [:mouse :button :left]}}
+    :k34 {:legend "Button 2" :actions {:tap [:mouse :button :right]
+                                        :hold [:mouse :button :right]}}
+    :k35 {:legend "Button 3" :actions {:tap [:mouse :button :middle]
+                                        :hold [:mouse :button :middle]}}}}}
+
+ :combos
+ [{:id :clear-active-profile
+   :layers #{:mouse}
+   :keys [:k20 :k29]
+   :timeout-ms 500
+   :behavior :clear-profile-hold
+   :hold-ms 700
+   :action [:bluetooth :clear-selected-profile]
+   :cancel-on-release true}]
+
+ ;; Gesture steps describe the inferred physical sequence shown by PRETYPIST.
+ ;; They are not raw browser telemetry. :hold/:release delimit momentary layers;
+ ;; :tap, :double-tap, and :double-hold name the corresponding firmware gesture.
+ :strokes
+ {"a" [[:tap :k13]] "A" [[:one-shot :k30] [:tap :k13]]
+  "b" [[:tap :k00]] "B" [[:one-shot :k30] [:tap :k00]]
+  "c" [[:tap :k10]] "C" [[:one-shot :k30] [:tap :k10]]
+  "d" [[:tap :k06]] "D" [[:one-shot :k30] [:tap :k06]]
+  "e" [[:tap :k12]] "E" [[:one-shot :k30] [:tap :k12]]
+  "f" [[:tap :k27]] "F" [[:one-shot :k30] [:tap :k27]]
+  "g" [[:tap :k20]] "G" [[:one-shot :k30] [:tap :k20]]
+  "h" [[:tap :k15]] "H" [[:one-shot :k30] [:tap :k15]]
+  "i" [[:tap :k11]] "I" [[:one-shot :k30] [:tap :k11]]
+  "j" [[:tap :k22]] "J" [[:one-shot :k30] [:tap :k22]]
+  "k" [[:tap :k23]] "K" [[:one-shot :k30] [:tap :k23]]
+  "l" [[:tap :k05]] "L" [[:one-shot :k30] [:tap :k05]]
+  "m" [[:tap :k26]] "M" [[:one-shot :k30] [:tap :k26]]
+  "n" [[:tap :k18]] "N" [[:one-shot :k30] [:tap :k18]]
+  "o" [[:tap :k02]] "O" [[:one-shot :k30] [:tap :k02]]
+  "p" [[:tap :k28]] "P" [[:one-shot :k30] [:tap :k28]]
+  "q" [[:tap :k19]] "Q" [[:one-shot :k30] [:tap :k19]]
+  "r" [[:tap :k25]] "R" [[:one-shot :k30] [:tap :k25]]
+  "s" [[:tap :k17]] "S" [[:one-shot :k30] [:tap :k17]]
+  "t" [[:tap :k16]] "T" [[:one-shot :k30] [:tap :k16]]
+  "u" [[:tap :k03]] "U" [[:one-shot :k30] [:tap :k03]]
+  "v" [[:tap :k08]] "V" [[:one-shot :k30] [:tap :k08]]
+  "w" [[:tap :k07]] "W" [[:one-shot :k30] [:tap :k07]]
+  "x" [[:tap :k21]] "X" [[:one-shot :k30] [:tap :k21]]
+  "y" [[:tap :k01]] "Y" [[:one-shot :k30] [:tap :k01]]
+  "z" [[:tap :k09]] "Z" [[:one-shot :k30] [:tap :k09]]
+
+  "æ" [[:hold :k34] [:tap :k12] [:release :k34]]
+  "Æ" [[:one-shot :k30] [:hold :k34] [:tap :k12] [:release :k34]]
+  "ø" [[:hold :k34] [:tap :k02] [:release :k34]]
+  "Ø" [[:one-shot :k30] [:hold :k34] [:tap :k02] [:release :k34]]
+  "å" [[:hold :k34] [:tap :k22] [:release :k34]]
+  "Å" [[:one-shot :k30] [:hold :k34] [:tap :k22] [:release :k34]]
+
+  " " [[:tap :k31]]
+  "\n" [[:tap :k34]]
+  "." [[:tap :k14]]
+  "," [[:double-tap :k14]]
+  "'" [[:tap :k04]]
+  "|" [[:hold :k04]]
+  "´" [[:double-tap :k04]]
+  "-" [[:tap :k24]]
+  "_" [[:double-tap :k24]]
+  "->" [[:hold :k24]]
+  "->>" [[:double-hold :k24]]
+
+  "1" [[:hold :k34] [:tap :k25] [:release :k34]]
+  "2" [[:hold :k34] [:tap :k26] [:release :k34]]
+  "3" [[:hold :k34] [:tap :k27] [:release :k34]]
+  "4" [[:hold :k34] [:tap :k15] [:release :k34]]
+  "5" [[:hold :k34] [:tap :k16] [:release :k34]]
+  "6" [[:hold :k34] [:tap :k17] [:release :k34]]
+  "7" [[:hold :k34] [:tap :k05] [:release :k34]]
+  "8" [[:hold :k34] [:tap :k06] [:release :k34]]
+  "9" [[:hold :k34] [:tap :k07] [:release :k34]]
+  "0" [[:hold :k34] [:tap :k35] [:release :k34]]
+
+  "!" [[:one-shot :k32] [:tap :k00]]
+  "#" [[:one-shot :k32] [:tap :k01]]
+  "%" [[:one-shot :k32] [:tap :k02]]
+  "~" [[:one-shot :k32] [:tap :k03]]
+  "@" [[:one-shot :k32] [:tap :k04]]
+  "\"" [[:one-shot :k32] [:tap :k05]]
+  "$" [[:one-shot :k32] [:tap :k06]]
+  "€" [[:one-shot :k30] [:one-shot :k32] [:tap :k06]]
+  "?" [[:one-shot :k32] [:tap :k07]]
+  "&" [[:one-shot :k32] [:tap :k08]]
+  "^" [[:one-shot :k32] [:tap :k09]]
+  "<" [[:one-shot :k32] [:tap :k10]]
+  "/" [[:one-shot :k32] [:tap :k11]]
+  "{" [[:one-shot :k32] [:tap :k12]]
+  "[" [[:one-shot :k32] [:tap :k13]]
+  "(" [[:one-shot :k32] [:tap :k14]]
+  ")" [[:one-shot :k32] [:tap :k15]]
+  "]" [[:one-shot :k32] [:tap :k16]]
+  "}" [[:one-shot :k32] [:tap :k17]]
+  "\\" [[:one-shot :k32] [:tap :k18]]
+  ">" [[:one-shot :k32] [:tap :k19]]
+  ";" [[:one-shot :k32] [:tap :k20]]
+  ":" [[:one-shot :k32] [:tap :k21]]
+  "*" [[:one-shot :k32] [:tap :k22]]
+  "`" [[:one-shot :k32] [:tap :k23]]
+  "=" [[:one-shot :k32] [:tap :k25]]
+  "+" [[:one-shot :k32] [:tap :k29]]}
+
+ :host-profiles
+ {:mac-no
+  {:name "macOS Norwegian"
+   :os :macos
+   :input-layout :norwegian
+   :bluetooth-profile-indices #{0 2 3 4}
+   :firmware-layers {:base :base :symbols :sym-mac}
+   :emissions
+   {:apostrophe [:key :non-us-backslash]
+    :pipe [:chord :right-alt :n7]
+    :acute [:key :equal]
+    :hyphen [:key :slash]
+    :underscore [:chord :left-shift :slash]
+    :arrow [:sequence [:key :slash] [:chord :left-shift :grave]]
+    :fat-arrow [:sequence [:key :slash]
+                [:chord :left-shift :grave]
+                [:chord :left-shift :grave]]
+    :format-block
+    [:sequence
+     [:chord :left-shift :equal] [:key :space]
+     [:chord :left-shift :equal] [:key :space]
+     [:chord :left-shift :equal] [:key :space]
+     [:key :enter]
+     [:chord :left-shift :equal] [:key :space]
+     [:chord :left-shift :equal] [:key :space]
+     [:chord :left-shift :equal] [:key :space]
+     [:key :enter]
+     [:key :arrow-left] [:key :arrow-left] [:key :arrow-left]
+     [:key :arrow-left] [:key :arrow-left]]
+
+    :exclamation [:chord :left-shift :n1]
+    :hash [:chord :left-shift :n3]
+    :percent [:chord :left-shift :n5]
+    :tilde [:sequence [:chord :right-alt :right-bracket] [:key :space]]
+    :at [:key :backslash]
+    :double-quote [:chord :left-shift :n2]
+    :dollar [:chord :left-shift :n4]
+    :euro [:chord :right-alt :n4]
+    :question-mark [:chord :left-shift :minus]
+    :ampersand [:chord :left-shift :n6]
+    :caret [:sequence [:chord :left-shift :right-bracket] [:key :space]]
+    :less-than [:key :grave]
+    :slash [:chord :left-shift :n7]
+    :left-brace [:chord :left-shift :right-alt :n8]
+    :left-bracket [:chord :right-alt :n8]
+    :left-paren [:chord :left-shift :n8]
+    :right-paren [:chord :left-shift :n9]
+    :right-bracket [:chord :right-alt :n9]
+    :right-brace [:chord :left-shift :right-alt :n9]
+    :backslash [:chord :left-shift :right-alt :n7]
+    :greater-than [:chord :left-shift :grave]
+    :semicolon [:chord :left-shift :comma]
+    :colon [:chord :left-shift :period]
+    :asterisk [:chord :left-shift :backslash]
+    :backtick [:sequence [:chord :left-shift :equal] [:key :space]]
+    :equals [:chord :left-shift :n0]
+    :plus [:key :minus]}}
+
+  :win-no
+  {:name "Windows Norwegian"
+   :os :windows
+   :input-layout :norwegian
+   :bluetooth-profile-indices #{1}
+   :firmware-layers {:base :windows-overlay
+                     :transparent-fallback :base
+                     :symbols :sym-win}
+   :overrides
+   [{:path [:layers :base :bindings :k04 :firmware-behavior]
+     :value :quote-dance-win}
+    {:path [:layers :base :bindings :k24 :firmware-behavior]
+     :value :dash-dance-win}
+    {:path [:layers :base :bindings :k32 :firmware-behavior]
+     :value :one-shot-sym-win}]
+   :emissions
+   {:apostrophe [:key :backslash]
+    :pipe [:key :grave]
+    :acute [:chord :left-shift :equal]
+    :hyphen [:key :slash]
+    :underscore [:chord :left-shift :slash]
+    :arrow [:sequence [:key :slash] [:chord :left-shift :non-us-backslash]]
+    :fat-arrow [:sequence [:key :slash]
+                [:chord :left-shift :non-us-backslash]
+                [:chord :left-shift :non-us-backslash]]
+    :format-block
+    [:sequence
+     [:press :right-alt]
+     [:key :equal] [:key :space] [:key :equal] [:key :space]
+     [:key :equal] [:key :space]
+     [:release :right-alt]
+     [:key :enter]
+     [:press :right-alt]
+     [:key :equal] [:key :space] [:key :equal] [:key :space]
+     [:key :equal] [:key :space]
+     [:release :right-alt]
+     [:key :enter]
+     [:key :arrow-left] [:key :arrow-left] [:key :arrow-left]
+     [:key :arrow-left] [:key :arrow-left]]
+
+    :exclamation [:chord :left-shift :n1]
+    :hash [:chord :left-shift :n3]
+    :percent [:chord :left-shift :n5]
+    :tilde [:sequence [:chord :right-alt :right-bracket] [:key :space]]
+    :at [:chord :right-alt :n2]
+    :double-quote [:chord :left-shift :n2]
+    :dollar [:chord :right-alt :n4]
+    :euro [:chord :right-alt :e]
+    :question-mark [:chord :left-shift :minus]
+    :ampersand [:chord :left-shift :n6]
+    :caret [:sequence [:chord :left-shift :right-bracket] [:key :space]]
+    :less-than [:key :non-us-backslash]
+    :slash [:chord :left-shift :n7]
+    :left-brace [:chord :right-alt :n7]
+    :left-bracket [:chord :right-alt :n8]
+    :left-paren [:chord :left-shift :n8]
+    :right-paren [:chord :left-shift :n9]
+    :right-bracket [:chord :right-alt :n9]
+    :right-brace [:chord :right-alt :n0]
+    :backslash [:key :equal]
+    :greater-than [:chord :left-shift :non-us-backslash]
+    :semicolon [:chord :left-shift :comma]
+    :colon [:chord :left-shift :period]
+    :asterisk [:chord :left-shift :backslash]
+    :backtick [:sequence [:chord :right-alt :equal] [:key :space]]
+    :equals [:chord :left-shift :n0]
+    :plus [:key :minus]}}}}

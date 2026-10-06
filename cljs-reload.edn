@@ -1,0 +1,7 @@
+{:source-paths ["src" "dev"]
+ :css-paths ["resources/public/css"]
+ :poll-ms 100
+ :debounce-ms 100
+ :launch-browser true
+ :static-dir ["target/dev-shell" "resources/public" "resources" "target/dev"]
+ :port 8080}

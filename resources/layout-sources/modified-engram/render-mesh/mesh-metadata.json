@@ -1,0 +1,74 @@
+{
+  "formatVersion": 1,
+  "generator": "scripts/tessellate-step.py",
+  "cadqueryOcpVersion": "8.0.1.0.0",
+  "units": "millimetres",
+  "linearDeflectionMm": 0.08,
+  "angularDeflectionDegrees": 12.0,
+  "meshes": {
+    "top": {
+      "source": "resources/layout-sources/modified-engram/upstream/chocofi-case-v1/top.step",
+      "sourceSha256": "73555d15108088b8f885d367077314532b04bc34741c7bbb3726d660a7e60e43",
+      "output": "resources/layout-sources/modified-engram/render-mesh/top.stl",
+      "outputSha256": "35a380f5640dba5ab3f6ad280349b23832530f0564c51bf6d3c5621fe8f8ac30",
+      "brepValid": true,
+      "brepFaces": 467,
+      "untessellatedFaces": [
+        {
+          "faceIndex": 23,
+          "surfaceAreaSquareMillimetres": 0.0019967465078882286,
+          "centroidMillimetres": [
+            96.65230302978956,
+            -110.75095848775123,
+            3.763100304658977
+          ]
+        }
+      ],
+      "triangles": 15219,
+      "boundsMillimetres": {
+        "minimum": [
+          74.362,
+          -136.61693951951167,
+          -1.0
+        ],
+        "maximum": [
+          190.815131217661,
+          -41.4362014894798,
+          3.8
+        ]
+      }
+    },
+    "bottom": {
+      "source": "resources/layout-sources/modified-engram/upstream/chocofi-case-v1/bottom.step",
+      "sourceSha256": "79d5427d1427d596f045d81a9964726fcc30c37b6262e0d14effda59c6b0f7fc",
+      "output": "resources/layout-sources/modified-engram/render-mesh/bottom.stl",
+      "outputSha256": "f1cc5bc34b747f4a112f6bad8babf93426ff7769048058d8327fbfa82face18d",
+      "brepValid": true,
+      "brepFaces": 213,
+      "untessellatedFaces": [
+        {
+          "faceIndex": 21,
+          "surfaceAreaSquareMillimetres": 0.0020366670844089076,
+          "centroidMillimetres": [
+            75.15329894871385,
+            -76.71509764415218,
+            -2.9631027330268056
+          ]
+        }
+      ],
+      "triangles": 11395,
+      "boundsMillimetres": {
+        "minimum": [
+          74.362,
+          -136.61693951951165,
+          -3.0
+        ],
+        "maximum": [
+          190.815131217661,
+          -41.4362014894798,
+          0.4000000000000003
+        ]
+      }
+    }
+  }
+}

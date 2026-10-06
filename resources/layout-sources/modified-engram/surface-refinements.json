@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "units": "millimetres",
+  "keycap": {
+    "dishDepth": 0.65,
+    "cornerInset": 0.35,
+    "cornerDrop": 0,
+    "color": "#28292c",
+    "roughness": 0.67
+  },
+  "case": {
+    "color": "#15161a",
+    "roughness": 0.52,
+    "normalStrength": 0.32,
+    "textureTileSize": 4
+  },
+  "steel": {
+    "color": "#c0c4c7",
+    "metalness": 1,
+    "screwRoughness": 0.27,
+    "usbRoughness": 0.31
+  },
+  "fastener": {
+    "shaftRadius": 1,
+    "engagement": 0.65,
+    "headOverlap": 0.3
+  }
+}

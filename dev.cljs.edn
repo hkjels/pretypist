@@ -1,0 +1,9 @@
+{:main pretypist.core
+ :target :bundle
+ :output-to "target/dev/out/main.js"
+ :output-dir "target/dev/out"
+ :asset-path "/out"
+ :optimizations :none
+ :source-map true
+ :bundle-cmd
+ {:none ["npx" "--no-install" "esbuild" "target/dev/out/main.js" "--bundle" "--platform=browser" "--format=iife" "--conditions=browser,import" "--sourcemap" "--outfile=resources/public/js/app.js"]}}

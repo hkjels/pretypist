@@ -1,0 +1,46 @@
+{
+  "name": "pretypist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A prose-first typing trainer for split, layered keyboards.",
+  "license": "MIT",
+  "scripts": {
+    "author:case-mesh": "python3.12 scripts/tessellate-step.py",
+    "audit:model": "node scripts/adapt-authored-model.mjs --audit",
+    "audit:landing": "node scripts/audit-landing.mjs",
+    "audit:release": "node scripts/audit-release.mjs && node scripts/build-pwa.mjs --check && node scripts/package-layout.mjs --check && node scripts/adapt-authored-model.mjs --check && node scripts/generate-zmk-display-assets.mjs --check && clojure -M:corpus --check && node scripts/audit-landing.mjs",
+    "verify:zmk-display": "node scripts/verify-zmk-display.mjs --check",
+    "generate:zmk-display-assets": "node scripts/generate-zmk-display-assets.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "build:pwa": "node scripts/build-pwa.mjs",
+    "check:zmk-display-assets": "node scripts/generate-zmk-display-assets.mjs --check",
+    "generate:model": "node scripts/adapt-authored-model.mjs",
+    "author:model:legacy": "node scripts/generate-model.mjs --output target/blender/model-reference.glb && node scripts/blender-mcp-client.mjs scripts/blender/build_modified_engram.py && node scripts/stamp-blender-model.mjs",
+    "package:layout": "node scripts/package-layout.mjs",
+    "analyze:corpora": "clojure -M:corpus",
+    "check:corpora": "clojure -M:corpus --check",
+    "sync:corpora": "node scripts/sync-corpora.mjs",
+    "prepare:assets": "npm run analyze:corpora && npm run sync:corpora && npm run generate:model && npm run generate:zmk-display-assets && npm run package:layout",
+    "dev": "npm run prepare:assets && clojure -M:dev",
+    "test": "npm run prepare:assets && npm run check:corpora && npm run test:model-audit && npm run test:model-electronics && npm run test:zmk-display && npm run test:zmk-display-assets && clojure -M:test -m cljs.main -co test.cljs.edn -c pretypist.test-runner && node target/test.js",
+    "test:model-audit": "node --test test/scripts/audit-model.test.mjs test/scripts/adapt-authored-model.test.mjs",
+    "test:model-electronics": "node --test scripts/model/electronics.test.mjs",
+    "test:zmk-display": "node --test test/scripts/verify-zmk-display.test.mjs",
+    "test:zmk-display-assets": "node --test test/scripts/generate-zmk-display-assets.test.mjs",
+    "test:browser": "playwright test",
+    "preview:themes": "playwright test --grep \"package theme preview\"",
+    "build": "npm run prepare:assets && clojure -M -m cljs.main -co release.cljs.edn -c pretypist.core && npm run build:pwa && npm run audit:release"
+  },
+  "dependencies": {
+    "jszip": "3.10.1",
+    "lucide": "0.383.0",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0",
+    "esbuild": "0.25.9"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

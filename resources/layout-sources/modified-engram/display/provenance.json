@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "artifact": "stock-zmk-nice-view-authoring-evidence",
+  "vendorRoot": "vendor/zmk-v0.3",
+  "upstream": {
+    "repository": "https://github.com/zmkfirmware/zmk",
+    "tag": "v0.3",
+    "tagObject": "3cf9006a9377f21c99e944e29e2a507d8c3e9069",
+    "commit": "edf5c0814fd3ea202e43aad2d68fd32e882a518c",
+    "license": "MIT"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1077,
+      "sha256": "05e785a4c222b9213b452f1a2cd8b3f8ce95a56c1b77a7ca8525d0f7eb7f77b1"
+    },
+    {
+      "path": "app/boards/shields/nice_view/nice_view.overlay",
+      "bytes": 364,
+      "sha256": "39a817d626476202fb711fec1174480944bdfea9aaca0b88d633bedc4ac3e9bf"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/art.c",
+      "bytes": 17558,
+      "sha256": "e80761d7485091c01c3ec50eff1909787841fb4319dfc3936ef8db8bf7c1f537"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/bolt.c",
+      "bytes": 1342,
+      "sha256": "08ac2f43ebaa6268fd8ec593088f0a40a3fa9680be694de1f17d3b39238faf7e"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/peripheral_status.c",
+      "bytes": 4448,
+      "sha256": "ef338cec4f678204bfaf9f991912dc7be1ea9a7f62977c477fe8cc90733d3176"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/peripheral_status.h",
+      "bytes": 465,
+      "sha256": "dad22d31a7ece3f902e3665921264128c3d68f7fffa3d765ef772fc2a06d4883"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/status.c",
+      "bytes": 12950,
+      "sha256": "ef1fe00650dec58be351642bb7eaeddf370fb93c380930918da11ba0f20b3d90"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/status.h",
+      "bytes": 563,
+      "sha256": "82755d28d7c099239c40242c3c3dd1aa7233d962fa049379a2417e3ace1fa3dd"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/util.c",
+      "bytes": 2220,
+      "sha256": "acfe5b323a990a2330a5d6c5fb6315416f22842f9c636d7b140f9e3bf41152b5"
+    },
+    {
+      "path": "app/boards/shields/nice_view/widgets/util.h",
+      "bytes": 1696,
+      "sha256": "45d9667119029a82d721527fbd12e79eedbd23c3048bb8c4e0af056c63384c38"
+    }
+  ],
+  "semantics": {
+    "panelCompatible": "sharp,ls0xx",
+    "panelPixels": {
+      "width": 160,
+      "height": 68
+    },
+    "spiMaxFrequencyHz": 1000000,
+    "centralWidgetPixels": {
+      "width": 160,
+      "height": 68
+    },
+    "canvasSizePixels": 68,
+    "canvasRotationTenthsDegrees": 900,
+    "centralCanvasPlacements": [
+      {
+        "canvas": "top",
+        "align": "LV_ALIGN_TOP_RIGHT",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "canvas": "middle",
+        "align": "LV_ALIGN_TOP_LEFT",
+        "x": 24,
+        "y": 0
+      },
+      {
+        "canvas": "bottom",
+        "align": "LV_ALIGN_TOP_LEFT",
+        "x": -44,
+        "y": 0
+      }
+    ],
+    "profileCount": 5,
+    "profileCentersPixels": [
+      [13, 13],
+      [55, 13],
+      [34, 34],
+      [13, 55],
+      [55, 55]
+    ],
+    "wpmFramePixels": {
+      "outer": [0, 21, 68, 42],
+      "inner": [1, 22, 66, 40]
+    },
+    "layerLabelPixels": {
+      "x": 0,
+      "y": 5,
+      "width": 68
+    },
+    "batteryFramePixels": {
+      "outer": [0, 2, 29, 12],
+      "inner": [1, 3, 27, 10],
+      "terminalOuter": [30, 5, 3, 6],
+      "terminalInner": [31, 6, 1, 4]
+    },
+    "chargingIconPixels": {
+      "width": 11,
+      "height": 18,
+      "dataBytes": 70
+    },
+    "rotatedCanvasCount": 3,
+    "statusCanvasBufferCount": 3,
+    "peripheralWidgetPixels": {
+      "width": 160,
+      "height": 68
+    },
+    "peripheralCanvasPlacement": {
+      "canvas": "top",
+      "align": "LV_ALIGN_TOP_RIGHT",
+      "x": 0,
+      "y": 0
+    },
+    "peripheralArtPlacement": {
+      "align": "LV_ALIGN_TOP_LEFT",
+      "x": 0,
+      "y": 0
+    },
+    "peripheralArtPixels": {
+      "balloon": {
+        "width": 140,
+        "height": 68,
+        "dataBytes": 1232
+      },
+      "mountain": {
+        "width": 140,
+        "height": 68,
+        "dataBytes": 1232
+      }
+    },
+    "peripheralArtSelection": "random-low-bit:balloon-or-mountain",
+    "peripheralCanvasBufferCount": 1
+  }
+}
