@@ -148,10 +148,16 @@ The same build works at the origin root and under a folder such as
 node scripts/serve.mjs 4173 /pretypist/
 ```
 
-Then open <http://127.0.0.1:4173/pretypist/>. To use
-[GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site),
-build the app and publish the contents of `resources/public` as the Pages
-artifact, with `index.html` at its root. No base path setting is needed.
+Then open <http://127.0.0.1:4173/pretypist/>.
+
+### GitHub Pages
+
+In the repository's [Pages settings](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site),
+set **Build and deployment → Source** to **GitHub Actions**. The
+[Pages workflow](../.github/workflows/pages.yml) runs the tests and release
+build, then deploys `resources/public` with `index.html` at the artifact root.
+It deploys on pushes to `main` or when run manually from `main` in the Actions
+tab. No base path setting is needed for `/pretypist/`.
 
 ### Installed app and offline practice
 
