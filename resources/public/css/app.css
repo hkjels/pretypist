@@ -253,7 +253,7 @@ button:disabled {
   width: 26px;
   height: 26px;
   background: var(--fg);
-  mask: url("/icons/mark.svg") center / contain no-repeat;
+  mask: url("../icons/mark.svg") center / contain no-repeat;
 }
 .loading-mark .brand-mark { width: 52px; height: 52px; background: var(--accent); }
 .pwa-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; }

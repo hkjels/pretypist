@@ -3,25 +3,30 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 
 const returning = '{:version 1 :status :complete :step :complete :phase :complete :gesture-index 3 :records [] :started-at 1 :completed-at 2 :interrupted? false}';
-let server, origin, version, failingPath;
+const appPath = "/pretypist/";
+const cacheName = (scope, version) => `pretypist-offline:${encodeURIComponent(scope)}:browser-test-${version}`;
+let server, origin, projectVersion, failingPath, serveRoot;
 const assets = new Map();
 
 test.beforeAll(async () => {
   const worker = await readFile("resources/public/sw.js", "utf8");
   const paths = JSON.parse(worker.match(/const \{ version, assets \} = (.*);/)[1]).assets;
   for (const path of paths) {
-    assets.set(path, await readFile(`resources/public/${path === "/" ? "index.html" : path.slice(1)}`));
+    assets.set(path, await readFile(`resources/public/${path === "./" ? "index.html" : path}`));
   }
-  assets.set("/sw.js", worker);
+  assets.set("sw.js", worker);
   server = createServer((request, response) => {
-    const path = new URL(request.url, "http://localhost").pathname;
-    const content = assets.get(path);
-    if (!content || path === failingPath) return response.writeHead(503).end("Unavailable");
+    const pathname = new URL(request.url, "http://localhost").pathname;
+    const path = pathname.startsWith(appPath) ? pathname.slice(appPath.length) : serveRoot ? pathname.slice(1) : null;
+    const shell = path === "" || path === "index.html";
+    const content = assets.get(shell ? "./" : path);
+    if (!content) return response.writeHead(404).end("Not found");
+    if (pathname === failingPath) return response.writeHead(503).end("Unavailable");
     const types = { js: "text/javascript", css: "text/css", webmanifest: "application/manifest+json",
       png: "image/png", svg: "image/svg+xml", edn: "application/edn" };
-    response.writeHead(200, { "content-type": path === "/" ? "text/html" : types[path.split(".").at(-1)] || "application/octet-stream", "cache-control": "no-store" });
-    response.end(path === "/sw.js"
-      ? content.replace(/"version":"[^"]+"/, `"version":"browser-test-${version}"`)
+    response.writeHead(200, { "content-type": shell ? "text/html" : types[path.split(".").at(-1)] || "application/octet-stream", "cache-control": "no-store" });
+    response.end(path === "sw.js"
+      ? content.replace(/"version":"[^"]+"/, `"version":"browser-test-${pathname.startsWith(appPath) ? projectVersion : 1}"`)
       : content);
   });
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
@@ -31,8 +36,9 @@ test.beforeAll(async () => {
 test.afterAll(async () => { await new Promise(resolve => server.close(resolve)); });
 
 test.beforeEach(async ({ page }) => {
-  version = 1;
+  projectVersion = 1;
   failingPath = null;
+  serveRoot = false;
   await page.addInitScript(returning => {
     if (!localStorage.getItem("pretypist/settings")) {
       localStorage.setItem("pretypist/settings", '{:version 2 :language :en :mode :flow :appearance :dark :reduced-motion? true}');
@@ -41,20 +47,24 @@ test.beforeEach(async ({ page }) => {
   }, returning);
 });
 
-async function ready(page) {
-  await page.goto(origin);
+async function ready(page, scope = appPath) {
+  await page.goto(`${origin}${scope}`);
   await expect(page.getByRole("button", { name: "Start session", exact: true })).toBeVisible();
-  await page.waitForFunction(() => navigator.serviceWorker.controller);
+  await page.waitForFunction(url => navigator.serviceWorker.controller?.scriptURL === url, `${origin}${scope}sw.js`);
 }
 
 test("manifest, icons and a completed session offer installation", async ({ page, request }) => {
-  const response = await request.get(`${origin}/manifest.webmanifest`);
+  const manifestURL = `${origin}${appPath}manifest.webmanifest`;
+  const response = await request.get(manifestURL);
   expect(response.headers()["content-type"]).toContain("application/manifest+json");
   const manifest = await response.json();
+  expect(new URL(manifest.start_url, manifestURL).href).toBe(`${origin}${appPath}`);
+  expect(new URL(manifest.scope, manifestURL).href).toBe(`${origin}${appPath}`);
+  expect(manifest.id).toBeUndefined(); // The installed identity inherits the scoped start URL.
   expect(manifest.display).toBe("standalone");
   expect(manifest.icons.some(icon => icon.purpose === "maskable")).toBe(true);
   for (const icon of manifest.icons) {
-    const image = await request.get(`${origin}${icon.src}`);
+    const image = await request.get(new URL(icon.src, manifestURL).href);
     expect(image.headers()["content-type"]).toBe("image/png");
     const pixels = await image.body();
     expect(`${pixels.readUInt32BE(16)}x${pixels.readUInt32BE(20)}`).toBe(icon.sizes);
@@ -91,6 +101,10 @@ test("offline reload preserves progress, both corpora and the keyboard", async (
   await context.setOffline(true);
   await page.reload();
   await expect(page.getByRole("button", { name: "Continue", exact: true })).toBeVisible();
+  // Explicit index URLs, queries and fragments use the same cached release shell.
+  await page.goto(`${origin}${appPath}index.html?offline=1#landing-begin`);
+  await expect(page.getByRole("button", { name: "Continue", exact: true })).toBeVisible();
+  expect(await page.evaluate(() => fetch("layouts/one-piece-example.pretypist").then(response => response.ok))).toBe(true);
   expect(await page.evaluate(() => localStorage.getItem("pretypist/progress"))).toBe(progress);
   await page.getByRole("button", { name: "Open settings" }).click();
   await expect(page.getByText("Available offline. Your practice stays on this device.")).toBeVisible();
@@ -114,7 +128,7 @@ test("an update waits through active and paused typing, then reloads on request"
   await page.getByRole("button", { name: "Start session", exact: true }).click();
   const text = await page.locator(".prose-line").getAttribute("aria-label");
   await page.keyboard.insertText(text.slice(0, 3));
-  version = 2;
+  projectVersion = 2;
   await page.evaluate(async () => { await (await navigator.serviceWorker.getRegistration()).update(); });
   await page.waitForFunction(async () => (await navigator.serviceWorker.getRegistration()).waiting);
   await expect(page.locator(".character.is-complete")).toHaveCount(3);
@@ -131,15 +145,15 @@ test("an update waits through active and paused typing, then reloads on request"
   ]);
   await expect(page.getByRole("button", { name: "Continue", exact: true })).toBeVisible();
   expect(await page.evaluate(() => localStorage.getItem("pretypist/progress"))).toBe(progress);
-  expect(await page.evaluate(() => caches.keys())).toEqual(["pretypist-offline-browser-test-2"]);
+  expect(await page.evaluate(() => caches.keys())).toEqual([cacheName(appPath, 2)]);
   await expect(other.locator(".character.is-complete")).toHaveCount(4);
   await expect(other.locator(".prose-line")).toHaveAttribute("aria-label", otherText);
 });
 
 test("a failed offline download keeps the previous release usable", async ({ page, context }) => {
   await ready(page);
-  version = 3;
-  failingPath = "/corpora/en.edn";
+  projectVersion = 3;
+  failingPath = `${appPath}corpora/en.edn`;
   await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.getRegistration();
     const failure = new Promise(resolve => registration.addEventListener("updatefound", () => {
@@ -151,10 +165,35 @@ test("a failed offline download keeps the previous release usable", async ({ pag
     await registration.update();
     await failure;
   });
-  expect(await page.evaluate(() => caches.keys())).toEqual(["pretypist-offline-browser-test-1"]);
+  expect(await page.evaluate(() => caches.keys())).toEqual([cacheName(appPath, 1)]);
   await context.setOffline(true);
   await page.reload();
   await page.getByRole("button", { name: "Start session", exact: true }).click();
   await page.keyboard.insertText(await page.locator(".prose-line").getAttribute("aria-label"));
   await expect(page.locator(".completion-panel")).toBeVisible();
+});
+
+test("root and project-path installs keep separate offline releases", async ({ page, context }) => {
+  serveRoot = true;
+  await ready(page, "/");
+  const project = await context.newPage();
+  await ready(project);
+  expect(await project.evaluate(async () => (await navigator.serviceWorker.getRegistration()).scope)).toBe(`${origin}${appPath}`);
+  expect(await project.evaluate(async () => (await caches.keys()).sort())).toEqual([cacheName("/", 1), cacheName(appPath, 1)].sort());
+
+  projectVersion = 2;
+  await project.evaluate(async () => { await (await navigator.serviceWorker.getRegistration()).update(); });
+  await project.waitForFunction(async () => (await navigator.serviceWorker.getRegistration()).waiting);
+  await project.getByRole("button", { name: "Open settings" }).click();
+  await Promise.all([
+    project.waitForEvent("domcontentloaded"),
+    project.getByRole("button", { name: "Update Pretypist" }).click(),
+  ]);
+  expect(await project.evaluate(async () => (await caches.keys()).sort())).toEqual([cacheName("/", 1), cacheName(appPath, 2)].sort());
+
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.getByRole("button", { name: "Start session", exact: true })).toBeVisible();
+  await project.reload();
+  await expect(project.getByRole("button", { name: "Start session", exact: true })).toBeVisible();
 });

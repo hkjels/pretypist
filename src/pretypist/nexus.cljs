@@ -920,9 +920,9 @@
 
 (defn- load-corpora! [ctx _system]
   (-> (js/Promise.all
-       #js [(-> (js/fetch "/corpora/en.edn") (.then #(.text %)))
-            (-> (js/fetch "/corpora/nb.edn") (.then #(.text %)))
-            (-> (js/fetch "/corpora/metadata.edn") (.then #(.text %)))])
+       #js [(-> (js/fetch "corpora/en.edn") (.then #(.text %)))
+            (-> (js/fetch "corpora/nb.edn") (.then #(.text %)))
+            (-> (js/fetch "corpora/metadata.edn") (.then #(.text %)))])
       (.then (fn [values]
                (let [en (reader/read-string (aget values 0))
                      nb (reader/read-string (aget values 1))
@@ -940,7 +940,7 @@
 
 (defn- load-selected! [ctx system id]
   (if (or (nil? id) (= id "modified-engram"))
-    (-> (package/fetch-package "/layouts/modified-engram.pretypist")
+    (-> (package/fetch-package "layouts/modified-engram.pretypist")
         (.then (fn [result]
                  ((:dispatch ctx) [(if (:ok? result)
                                      [:layout/loaded result true]

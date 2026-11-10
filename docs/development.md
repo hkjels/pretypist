@@ -141,11 +141,17 @@ node scripts/serve.mjs 4173
 
 Then open <http://127.0.0.1:4173>.
 
-The build output can be deployed to a static HTTPS host. To use
+The same build works at the origin root and under a folder such as
+`/pretypist/`. To preview the project path locally, run:
+
+```sh
+node scripts/serve.mjs 4173 /pretypist/
+```
+
+Then open <http://127.0.0.1:4173/pretypist/>. To use
 [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site),
-publish `resources/public` as the site artifact. The current build assumes it
-is served at the origin root. For a Pages project site under `/pretypist/`,
-first make the asset URLs, manifest, and service worker scope use that base path.
+build the app and publish the contents of `resources/public` as the Pages
+artifact, with `index.html` at its root. No base path setting is needed.
 
 ### Installed app and offline practice
 
@@ -160,6 +166,7 @@ progress stays in localStorage. Once Settings says **Available offline**, the
 app can be closed and reopened without a network connection.
 
 Each production build fingerprints its offline assets and generates `sw.js`.
+The worker controls and caches only its own installation path.
 An update downloads a complete new release before it is offered. Failed
 downloads retain the previous working release. Updates wait for an explicit
 **Update Pretypist** action between sessions; active or paused practice and

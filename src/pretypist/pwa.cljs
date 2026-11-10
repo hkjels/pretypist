@@ -9,6 +9,9 @@
 
 (defn start! [changed!]
   (let [worker-api (.-serviceWorker js/navigator)
+        base (js/URL. "./" (.-baseURI js/document))
+        worker-url (.-href (js/URL. "sw.js" base))
+        our-controller? #(= worker-url (some-> worker-api .-controller .-scriptURL))
         display-mode (js/window.matchMedia "(display-mode: standalone)")
         installed? #(or (.-matches display-mode) (true? (.-standalone js/navigator)))
         registration* (atom nil)
@@ -29,8 +32,9 @@
               (reset! install-prompt* event)
               (installation-changed!))
             (controller-changed! []
-              (emit! {:offline-ready? true :update-ready? false})
-              (when @reload-requested?* (js/window.location.reload)))
+              (let [ready? (our-controller?)]
+                (emit! {:offline-ready? ready? :update-ready? false})
+                (when (and ready? @reload-requested?*) (js/window.location.reload))))
             (check-waiting! []
               (emit! {:update-ready? (some? (some-> @registration* .-waiting))}))
             (watch-installing! []
@@ -61,18 +65,16 @@
                                          (emit! {:installed? true :installable? false})))
       (listen! display-mode "change" installation-changed!)
       (when (and worker-api js/window.isSecureContext)
-        (when (.-controller worker-api) (emit! {:offline-ready? true}))
+        (when (our-controller?) (emit! {:offline-ready? true}))
         (listen! worker-api "controllerchange" controller-changed!)
         (listen! js/document "visibilitychange" check-update!)
-        (-> (.register worker-api "/sw.js" #js {:scope "/" :updateViaCache "none"})
+        (-> (.register worker-api worker-url #js {:scope (.-href base) :updateViaCache "none"})
             (.then (fn [registration]
                      (when-not @disposed?*
                        (reset! registration* registration)
                        (listen! registration "updatefound" watch-installing!)
                        (watch-installing!)
-                       (check-waiting!))
-                     (.-ready worker-api)))
-            (.then (fn [_] (emit! {:offline-ready? true})))
+                       (check-waiting!))))
             (.catch (fn [_] nil))))
       {:install! install!
        :update! update!

@@ -20,9 +20,10 @@ const budgets = Object.freeze({
   javascript: 2 * 1024 * 1024,
 });
 
-const [html, css] = await Promise.all([
+const [html, css, manifest] = await Promise.all([
   readFile(files.html, "utf8"),
   readFile(files.css, "utf8"),
+  readFile("resources/public/manifest.webmanifest", "utf8").then(JSON.parse),
 ]);
 const sizes = Object.fromEntries(
   await Promise.all(
@@ -37,14 +38,32 @@ for (const [name, maximum] of Object.entries(budgets)) {
   }
 }
 
-const references = [...html.matchAll(/\b(?:src|href)="([^"]+)"/g)].map((match) => match[1]);
-const remoteReferences = references.filter((value) => /^(?:https?:)?\/\//i.test(value));
-if (remoteReferences.length > 0) {
-  failures.push(`index.html has remote runtime references: ${remoteReferences.join(", ")}`);
+const deployment = new URL("https://example.invalid/pretypist/");
+function deployedReference(reference, source) {
+  if (typeof reference !== "string" || !reference.trim()
+      || /^(?:[a-z][a-z0-9+.-]*:|[\\/])/i.test(reference.trim())) return null;
+  const url = new URL(reference, new URL(source, deployment));
+  return url.origin === deployment.origin && url.pathname.startsWith(deployment.pathname) ? url.href : null;
 }
-if (/\@import\b|url\(\s*["']?(?:https?:)?\/\//i.test(css)) {
-  failures.push("app.css contains a remote @import or URL");
+const references = [...html.matchAll(/\b(?:src|href)="([^"]+)"/g)].map(match => match[1]);
+const cssURLs = [...css.matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*))\s*\)/gi)]
+  .map(([, double, single, bare]) => double ?? single ?? bare.trim());
+for (const [source, urls] of [
+  ["index.html", references],
+  ["css/app.css", cssURLs.filter(url => !url.startsWith("data:"))],
+  ["manifest.webmanifest", manifest.icons.map(icon => icon.src)],
+]) {
+  for (const url of urls) {
+    if (!deployedReference(url, source)) failures.push(`${source} has a URL outside the app folder: ${url}`);
+  }
 }
+if (/@import\b/i.test(css)) failures.push("app.css contains an @import");
+for (const member of ["start_url", "scope"]) {
+  if (deployedReference(manifest[member], "manifest.webmanifest") !== deployment.href) {
+    failures.push(`manifest ${member} must resolve to the app folder`);
+  }
+}
+if (Object.hasOwn(manifest, "id")) failures.push("manifest id must inherit the deployed start_url");
 
 const csp = html.match(/http-equiv="Content-Security-Policy"\s+content="([^"]+)"/i)?.[1] ?? "";
 for (const directive of [
