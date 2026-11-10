@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { Box3, Matrix4, Vector3 } from "three";
 import { auditGlb, parseGlb, DEFAULT_REQUIRED_NODES, formatReport } from "./audit-model.mjs";
 import { refineSurfaces } from "./model/refine-surfaces.mjs";
+import { optimizeRuntime, optimizationSettings } from "./model/optimize-runtime.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const directory = path.join(root, "resources/layout-sources/modified-engram");
@@ -33,6 +34,7 @@ export const authoredLimits = {
   skinnyTriangles: 18408,
   degenerateTriangles: 0,
 };
+export const runtimeLimits = { caseEffectiveTriangles: 16000, skinnyTriangles: 350, degenerateTriangles: 0 };
 const requiredNodes = [...DEFAULT_REQUIRED_NODES, "display_screen_left", "display_screen_right"];
 const metadata = [
   { path: ["asset", "version"], description: "glTF 2.0", validate: x => x === "2.0" },
@@ -159,10 +161,24 @@ export function adaptModel(source) {
   return { output, report, audit };
 }
 
+export function prepareRuntimeModel(source) {
+  // Audit the full-detail refinement first. Optimization does not relax the
+  // source/pivot/material contract tested by adaptModel.
+  const full = adaptModel(source), compact = optimizeRuntime(full.output);
+  const audit = auditGlb(compact.output, { requiredNodes, expectedMetadata: metadata, limits: runtimeLimits });
+  if (!audit.ok) throw new Error(audit.findings.map(f => f.message).join("\n"));
+  if (audit.triangles.effective > optimizationSettings.triangleBudget) throw new Error("Runtime model exceeds the 50k triangle budget.");
+  if (audit.triangles.effective !== 49186) throw new Error(`Unexpected optimized face count: ${audit.triangles.effective}.`);
+  const report = { ...full.report, version: 3, outputSha256: sha256(compact.output), outputBytes: compact.output.length,
+    note: "Full-detail adaptation audited before deriving a compact runtime GLB. Original authoring source retained byte-for-byte.",
+    optimization: compact.report, triangles: audit.triangles, runtimeGeometryLimits: runtimeLimits };
+  return { output: compact.output, report, audit };
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   if (args.some(x => !["--check", "--audit", "--enforce", "--json"].includes(x))) throw new Error("Usage: node scripts/adapt-authored-model.mjs [--check | --audit] [--enforce] [--json]");
-  const result = adaptModel(fs.readFileSync(sourcePath));
+  const result = prepareRuntimeModel(fs.readFileSync(sourcePath));
   if (args.includes("--check") || args.includes("--audit")) {
     if (!fs.readFileSync(outputPath).equals(result.output)) throw new Error("Adapted model is stale; run npm run generate:model.");
     if (fs.readFileSync(reportPath, "utf8") !== JSON.stringify(result.report, null, 2) + "\n") throw new Error("Model adaptation report is stale.");
@@ -172,5 +188,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   }
   if (args.includes("--json")) console.log(JSON.stringify(result.report, null, 2));
   else if (args.includes("--audit")) console.log(formatReport(result.audit, { input: outputPath, enforce: true }));
-  else console.log(`Verified refined keyboard: 36 mapped keys, 2 live displays, 4 glass fastener shafts (${result.output.length} bytes); original authored source untouched.`);
+  else console.log(`Verified compact keyboard: 36 mapped keys, 2 live displays, 4 glass fastener shafts, ${result.audit.triangles.effective} triangles (${result.output.length} bytes); original authored source untouched.`);
 }

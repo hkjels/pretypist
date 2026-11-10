@@ -24,7 +24,8 @@ The upstream audit identifies the original Vial input as SHA-256
 PRETYPIST does not need that repository or the Vial file at build time or at
 runtime.
 
-Package revision 12 refines the user's detailed Chocofi model. It retains the
+Package revision 14 derives a 49,186-triangle version of the user's detailed
+Chocofi model. It retains the
 current left-thumb order: outer one-shot Shift (`k30`), middle Space/NAV
 (`k31`), and inner one-shot SYM (`k32`). Windows changes the SYM backing layer
 at `k32`, not its physical position.
@@ -48,8 +49,8 @@ bounds, and only the caps move; sockets and switches remain stationary.
 The two original photograph planes are replaced with live
 `display_screen_left/right` anchors. Their active aperture is 10.9 × 25.5 mm,
 matching the supplied mesh. Glass, PCB, connector dimensions and cable routing
-remain intact. Original image bytes remain embedded as
-source evidence, but the photographic screen planes are not rendered.
+remain intact. Original image bytes stay in the authoring source; the runtime
+asset removes the unused photographs after the full-detail adaptation.
 
 `surface-refinements.json` is the editable parameter source for
 `scripts/model/refine-surfaces.mjs`, applied by the adapter. It adds:
@@ -67,20 +68,46 @@ source evidence, but the photographic screen planes are not rendered.
 
 Textures are embedded PNGs using standard glTF PBR and `KHR_texture_transform`;
 no custom shader code, remote texture, Blender, or runtime rebuild is needed.
-The entire original BIN is retained as a prefix, with new data appended.
+The full-detail adaptation retains the original BIN as a prefix, with new
+data appended. A separate runtime stage then compacts the rendered asset.
 
 `:model :material-policy :preserve` keeps the resulting GLB materials, textures,
 and shading. Key materials are cloned for independent glow, and transparent
 cover materials have depth writes disabled so they do not hide the live LCD.
 Layouts without this option keep the existing `:normalized` runtime palette.
 
-The source contains 959,092 triangles; the refined scene renders 973,424.
-The case still accounts for 671,344 triangles.
-There are zero degenerates and 18,408 inherited triangles above aspect ratio
-1,000. The adapter verifies those costs against this pinned source rather than
-claiming that the old procedural model's topology audit applies. This supplied
-GLB does not expose editable quad topology. The previous `.blend` and quad
-report remain available under `legacy/`.
+The source contains 959,092 triangles; the full-detail refinement has 973,424,
+including 671,344 in the case. Revision 14 derives the browser asset with
+`scripts/model/optimize-runtime.mjs`, using meshoptimizer bundled with Three.js.
+`runtime-optimization.json` records the 50,000-triangle budget and per-part
+targets: 0.06–0.07 mm for cases, 0.035 mm for keycaps, 0.04 mm for wiring and
+PCBs, and 0.06 mm for other selected components. Normals and UVs guide edge
+collapse; borders, bounding extrema and keycap dish centres are protected.
+The meshoptimizer metric is not a measured maximum surface-distance bound.
+The glass rim retains complete 12-sided tube cross-sections, removing redundant
+longitudinal rings at a 0.001 mm sampled chord-distance target. Source-derived
+case normals preserve sharp creases and flat panels while keeping bevels smooth.
+
+Closed manifold surfaces and hole topology are verified; problematic collapse
+neighbourhoods retain their full geometry. Retained positions and UVs are exact
+source values. Fasteners, USB housings, glass plates/apertures and all node
+transforms remain unchanged. PBR materials and texture pixels are preserved.
+Unused resources are removed, identical buffers are shared, and indices use
+16 bits when possible. The standard GLB needs no runtime decoder.
+
+The runtime scene has 49,186 triangles (15,712 in the case), zero degenerates
+and 329 triangles above aspect ratio 1,000. Its GLB is 1,386,620 bytes, down
+from 16,935,940. The ZIP also uses lossless DEFLATE compression for the model.
+Eight matched browser views compare the main view, case seam, underside, USB
+port, keycaps and fasteners against the full-detail refinement. Small lighting
+differences are accepted at extreme zoom, with tighter limits for the main
+view, caps and hardware. Review renders and
+pixel metrics are saved under `target/model-review/optimization/`.
+
+Both stages have separate geometry audits and a deterministic ledger in
+`model-adaptation.json`. The authored GLB stays byte-for-byte intact. It does
+not expose editable quad topology; the previous `.blend` and quad report
+remain under `legacy/`.
 
 ## Stable key and node order
 
@@ -399,9 +426,10 @@ node scripts/adapt-authored-model.mjs --check
 npm run package:layout
 ```
 
-The adapter preserves the entire source BIN chunk, positions, materials and
-images. `model-adaptation.json` records all 36 key mappings, both display
-anchors and dimensions, and exact source/output hashes. Changing the source
+The full-detail adaptation preserves the original BIN prefix; the runtime
+stage creates the compact browser asset described above. `model-adaptation.json`
+records both geometry audits, the optimization settings, all 36 key mappings,
+both display anchors and dimensions, and exact source/output hashes. Changing the source
 requires reviewing its names and geometry costs before updating the pinned
 hash. No Blender installation or external reference repository is needed for
 normal builds.

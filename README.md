@@ -115,8 +115,10 @@ observed input.
 `generate:model` adapts the preserved user-supplied `authored/model.glb` into
 PRETYPIST's node and animation contract, then applies reviewable cap, fastener,
 and material refinements from `surface-refinements.json`. The original source
-and case topology remain intact. `author:model:legacy` rebuilds only the previous
-procedural Blender model under `legacy/`.
+remains intact. A separate runtime pass reduces selected surfaces to a 50,000
+triangle budget, bakes case shading normals, and compacts buffers. Hardware,
+glass apertures, physical pivots and PBR textures are preserved. `author:model:legacy` rebuilds
+only the previous procedural Blender model under `legacy/`.
 `audit:model` reads the finished GLB directly and reports its structural
 contract and geometry cost without loading WebGL.
 `verify:zmk-display` verifies the separately vendored, pinned ZMK v0.3 display
@@ -315,11 +317,11 @@ continues to work and presents a small fallback message.
 ### Landing performance budgets
 
 `npm run audit:landing` enforces budgets on the production artifacts: optimized
-JavaScript must remain below 420 KiB gzip, the selected full-detail GLB below
-16.5 MiB, and the complete built-in package below 16.75 MiB. Revision 12 adds
-surface UVs, smooth normals and embedded PBR maps to the user's CAD model;
-the adapter independently pins its source hash, face count and inherited
-geometry findings. The current renderer also clamps
+JavaScript must remain below 420 KiB gzip, the compact runtime GLB below
+1.5 MiB, and the complete built-in package below 0.75 MiB. Revision 14 reduces
+the keyboard to 49,186 triangles and losslessly compresses the package. The adapter audits
+the full-detail source before optimization and pins both stages' geometry costs.
+The current renderer also clamps
 device pixel ratio to 2, stops requesting frames after interpolation settles,
 and pauses when the document is hidden. The runtime targets a usable first DOM
 interaction within two seconds on an ordinary current laptop and a 95th
@@ -336,7 +338,7 @@ Their phrase chunks and semantic `:tags` are hand-authored. The generated
 ```clojure
 {:corpus/metadata-version 1
  :layout/id "modified-engram"
- :layout/revision 12
+ :layout/revision 14
  :generated/by "npm run analyze:corpora"
  :passages
  {:en/example
@@ -662,6 +664,7 @@ resources/layout-sources/modified-engram/
 ├── layout.edn
 ├── model.glb
 ├── model-adaptation.json
+├── runtime-optimization.json
 ├── authored/model.glb
 ├── legacy/model.blend
 ├── legacy/model-topology.json
@@ -747,6 +750,8 @@ caps, embedded case micrograin, and physically based steel for the screws and
 USB housings. Four shafts traverse the existing glass holes, and the brass
 standoffs meet the glass underside. These targeted shape/material changes do
 not alter case topology, wiring, USB dimensions, key pivots or display mappings.
+Revision 14 derives a 49,186-triangle browser asset through the build-time
+runtime optimization pass described below.
 The package source README records dimensions, assumptions, and geometry costs.
 
 `:model :material-policy` accepts `:normalized` (the default) or `:preserve`.
@@ -824,13 +829,35 @@ edges and degenerate triangles rather than inventing geometry over those seams.
 ### Model adaptation and audit
 
 `npm run generate:model` adapts the reviewed `authored/model.glb` and writes
-`model.glb` plus `model-adaptation.json`. It is deterministic, preserves the
-entire source BIN chunk and material definitions, and rejects an unreviewed
-source hash. The report records the exact source-to-key mapping, metre-scale
-pivots, both display surfaces, provenance, geometry costs, and the explicit
-surface/fastener refinement ledger. Selected mesh and material assignments are
-replaced; retaining original data is not a claim that every rendered surface
-is unchanged.
+`model.glb` plus `model-adaptation.json`. It rejects an unreviewed source hash
+and runs two deterministic stages. The full-detail adaptation retains the
+original BIN prefix and applies the surface refinements. The runtime pass
+then simplifies selected meshes with meshoptimizer (bundled with Three.js).
+`runtime-optimization.json` records a 50,000-triangle budget and per-part error
+targets: 0.06–0.07 mm for cases, 0.035 mm for caps, 0.04 mm for wiring and PCBs,
+and 0.06 mm for other selected components. Normals and UVs guide edge collapse;
+borders, bounding extrema and keycap dish centres are protected. The glass rim
+uses complete 12-sided tube cross-sections with redundant longitudinal rings
+removed at a 0.001 mm sampled chord-distance target. Case normals are baked
+from the detailed source, preserving sharp creases and flat panels while
+keeping coarse bevels visually smooth. Closed surfaces and hole topology are
+verified; problematic collapse neighbourhoods retain their full geometry.
+The meshoptimizer error metric is not a measured maximum surface-distance bound.
+
+Retained positions and UVs are exact source values. Fasteners, USB housings,
+glass plates/apertures and all node transforms remain unchanged. Unused buffers
+and LCD photos are removed; identical buffers are shared and fitting indices
+use 16 bits. Rendered PBR materials, texture pixels and samplers are preserved
+exactly. The original authoring GLB remains byte-for-byte intact under `authored/`.
+
+The report records both stages, source/output hashes, all physical mappings
+and the simplification settings. The package uses lossless DEFLATE compression
+for the GLB, through the existing bounded ZIP reader. No runtime decoder or
+new dependency is required. Eight matched browser views guard visible detail,
+including the main view, case seam, underside, USB port, keycaps and fasteners.
+Small lighting differences are accepted at extreme zoom; the main view,
+keycaps and hardware have tighter pixel-difference limits.
+Review images and pixel metrics are written to `target/model-review/optimization/`.
 
 ```sh
 npm run generate:model
@@ -839,11 +866,12 @@ node scripts/adapt-authored-model.mjs --check
 npm run package:layout
 ```
 
-The refined model has 973,424 rendered triangles (671,344 in the case) and
-18,408 inherited triangles above aspect ratio 1,000. Its audit pins those
-limits to the supplied source hash, requires zero degenerates, and checks all
-43 required keys, halves, case and display nodes. Ordinary imported packages
-still use the same self-contained package validation and size limits.
+The full-detail refinement has 973,424 rendered triangles (671,344 in the case).
+The runtime model has 49,186 (15,712 in the case), with zero degenerates
+and 329 triangles above aspect ratio 1,000. It is 1,386,620 bytes, down from
+16,935,940. Both audit stages pin their geometry limits to the supplied source
+hash and check all 43 required keys, halves, case and display nodes. Ordinary
+imported packages still use the same self-contained package validation and size limits.
 
 This GLB does not expose editable quad topology. The previous 99.23% quad
 report and 6.8/10 critic score describe only the earlier procedural model,

@@ -23,7 +23,7 @@
     "prepare:assets": "npm run analyze:corpora && npm run sync:corpora && npm run generate:model && npm run generate:zmk-display-assets && npm run package:layout",
     "dev": "npm run prepare:assets && clojure -M:dev",
     "test": "npm run prepare:assets && npm run check:corpora && npm run test:model-audit && npm run test:model-electronics && npm run test:zmk-display && npm run test:zmk-display-assets && clojure -M:test -m cljs.main -co test.cljs.edn -c pretypist.test-runner && node target/test.js",
-    "test:model-audit": "node --test test/scripts/audit-model.test.mjs test/scripts/adapt-authored-model.test.mjs",
+    "test:model-audit": "node --test test/scripts/audit-model.test.mjs test/scripts/adapt-authored-model.test.mjs test/scripts/optimize-runtime.test.mjs",
     "test:model-electronics": "node --test scripts/model/electronics.test.mjs",
     "test:zmk-display": "node --test test/scripts/verify-zmk-display.test.mjs",
     "test:zmk-display-assets": "node --test test/scripts/generate-zmk-display-assets.test.mjs",

@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "triangleBudget": 50000,
+  "policies": {
+    "caseTop": {
+      "errorMillimetres": 0.07,
+      "normalWeight": 0.1
+    },
+    "caseBottom": {
+      "errorMillimetres": 0.06,
+      "normalWeight": 0.1
+    },
+    "keycap": {
+      "errorMillimetres": 0.035,
+      "normalWeight": 0.1
+    },
+    "glassRim": {
+      "method": "tube-rings",
+      "errorMillimetres": 0.001
+    },
+    "wiring": {
+      "errorMillimetres": 0.04,
+      "normalWeight": 0.1
+    },
+    "pcb": {
+      "errorMillimetres": 0.04,
+      "normalWeight": 0.1
+    },
+    "detail": {
+      "errorMillimetres": 0.06,
+      "normalWeight": 0.1
+    }
+  },
+  "caseNormalsCreaseDegrees": 45
+}

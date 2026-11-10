@@ -219,8 +219,9 @@ function endOfCentralDirectory(entryCount, centralSize, centralOffset) {
 
 function createZip(sourceEntries) {
   const entries = sourceEntries.map((entry) => {
-    // DEFLATE text, but store the already compact binary GLB and WebP verbatim.
-    const method = /\.(?:glb|webp)$/.test(entry.filename) ? 0 : 8;
+    // Geometry buffers still compress well. DEFLATE is lossless and supported
+    // by the existing bounded package reader; store already compressed WebP.
+    const method = /\.webp$/.test(entry.filename) ? 0 : 8;
     return {
       ...entry,
       method,

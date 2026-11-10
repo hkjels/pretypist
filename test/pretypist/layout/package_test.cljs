@@ -42,7 +42,7 @@
           (.then (fn [result]
                    (is (:ok? result) (pr-str (:errors result)))
       (is (= "modified-engram" (get-in result [:layout :package/id])))
-      (is (= 12 (get-in result [:layout :package/revision])))
+      (is (= 14 (get-in result [:layout :package/revision])))
       (is (= 1 (get-in result [:layout :theme :version])))
       (is (= "#5b50c8" (get-in result [:layout :theme :schemes :light :accent])))
       (is (= 36 (count (get-in result [:layout :keys]))))

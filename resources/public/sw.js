@@ -1,5 +1,5 @@
 // Generated with a content fingerprint after the production bundle is ready.
-const { version, assets } = {"version":"f9e432abde90e8eced28","assets":["/","/css/app.css","/js/app.js","/manifest.webmanifest","/corpora/en.edn","/corpora/nb.edn","/corpora/metadata.edn","/layouts/modified-engram.pretypist","/icons/mark.svg","/icons/app.svg","/icons/favicon-32.png","/icons/apple-touch-icon.png","/icons/icon-192.png","/icons/icon-512.png","/icons/icon-maskable-512.png"]};
+const { version, assets } = {"version":"f14bdb5b3fc51eff93b7","assets":["/","/css/app.css","/js/app.js","/manifest.webmanifest","/corpora/en.edn","/corpora/nb.edn","/corpora/metadata.edn","/layouts/modified-engram.pretypist","/icons/mark.svg","/icons/app.svg","/icons/favicon-32.png","/icons/apple-touch-icon.png","/icons/icon-192.png","/icons/icon-512.png","/icons/icon-maskable-512.png"]};
 const cacheName = `pretypist-offline-${version}`;
 const assetPaths = new Set(assets);
 

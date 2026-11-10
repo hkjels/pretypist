@@ -1,10 +1,10 @@
 {
-  "version": 2,
+  "version": 3,
   "source": "authored/model.glb",
   "sourceSha256": "01b84edda68fd4b6501bdc0f9d8e2dc9bb7a1bbcdcfd5dd286c437b819b24f08",
-  "outputSha256": "a360548aaee9f44983321b2cd6495e0755118edc665583515302221e7cee8f7e",
+  "outputSha256": "a9ebd4aa768a00053a503f79c26deafacb4edd7cdedc2e6f5ec9592e3c5245ef",
   "editableQuadRatio": null,
-  "note": "Targeted surface/fastener refinement, not whole-model retopology. Original source retained byte-for-byte.",
+  "note": "Full-detail adaptation audited before deriving a compact runtime GLB. Original authoring source retained byte-for-byte.",
   "refinement": {
     "version": 1,
     "settings": {
@@ -834,31 +834,5589 @@
     }
   },
   "sourceBytes": 14262280,
-  "outputBytes": 16935940,
+  "outputBytes": 1386620,
   "triangles": {
-    "stored": 973424,
-    "effective": 973424,
-    "caseStored": 671344,
-    "caseEffective": 671344,
-    "caseBudget": 671344,
+    "stored": 49186,
+    "effective": 49186,
+    "caseStored": 15712,
+    "caseEffective": 15712,
+    "caseBudget": 16000,
     "degeneratesStored": 0,
     "degeneratesEffective": 0,
     "degenerateLimit": 0,
-    "aboveAspectLimitStored": 18408,
-    "aboveAspectLimitEffective": 18408,
+    "aboveAspectLimitStored": 329,
+    "aboveAspectLimitEffective": 329,
     "aspectLimit": 1000,
-    "skinnyTriangleLimit": 18408,
+    "skinnyTriangleLimit": 350,
     "aspect": {
-      "samples": 973424,
-      "p50": 2.000373234996779,
-      "p95": 60.89447322456554,
-      "p99": 4803.979296225029,
+      "samples": 49186,
+      "p50": 4.951450802595995,
+      "p95": 56.58271354433248,
+      "p99": 846.0761341757128,
       "max": 807431.7172772109
     }
   },
   "inheritedGeometryLimits": {
     "caseEffectiveTriangles": 671344,
     "skinnyTriangles": 18408,
+    "degenerateTriangles": 0
+  },
+  "optimization": {
+    "settings": {
+      "version": 2,
+      "triangleBudget": 50000,
+      "policies": {
+        "caseTop": {
+          "errorMillimetres": 0.07,
+          "normalWeight": 0.1
+        },
+        "caseBottom": {
+          "errorMillimetres": 0.06,
+          "normalWeight": 0.1
+        },
+        "keycap": {
+          "errorMillimetres": 0.035,
+          "normalWeight": 0.1
+        },
+        "glassRim": {
+          "method": "tube-rings",
+          "errorMillimetres": 0.001
+        },
+        "wiring": {
+          "errorMillimetres": 0.04,
+          "normalWeight": 0.1
+        },
+        "pcb": {
+          "errorMillimetres": 0.04,
+          "normalWeight": 0.1
+        },
+        "detail": {
+          "errorMillimetres": 0.06,
+          "normalWeight": 0.1
+        }
+      },
+      "caseNormalsCreaseDegrees": 45
+    },
+    "beforeBytes": 16935940,
+    "afterBytes": 1386620,
+    "cases": [
+      {
+        "node": "case_bottom_left",
+        "role": "caseBottom",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 134286,
+        "afterTriangles": 3448,
+        "beforeVertices": 67145,
+        "afterVertices": 3360,
+        "protectedNeighbourhoodPasses": 2,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058554865419864655
+      },
+      {
+        "node": "case_top_left",
+        "role": "caseTop",
+        "errorTargetMillimetres": 0.07,
+        "beforeTriangles": 201386,
+        "afterTriangles": 4396,
+        "beforeVertices": 100647,
+        "afterVertices": 5136,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": -46,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.06962695717811584
+      },
+      {
+        "node": "case_bottom_right",
+        "role": "caseBottom",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 134286,
+        "afterTriangles": 3454,
+        "beforeVertices": 67145,
+        "afterVertices": 3322,
+        "protectedNeighbourhoodPasses": 1,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05858578905463219
+      },
+      {
+        "node": "case_top_right",
+        "role": "caseTop",
+        "errorTargetMillimetres": 0.07,
+        "beforeTriangles": 201386,
+        "afterTriangles": 4414,
+        "beforeVertices": 100647,
+        "afterVertices": 5233,
+        "protectedNeighbourhoodPasses": 1,
+        "topology": {
+          "euler": -46,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.06963153183460236
+      }
+    ],
+    "meshes": [
+      {
+        "node": "case_bottom_left",
+        "role": "caseBottom",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 134286,
+        "afterTriangles": 3448,
+        "beforeVertices": 67145,
+        "afterVertices": 3360,
+        "protectedNeighbourhoodPasses": 2,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058554865419864655
+      },
+      {
+        "node": "case_top_left",
+        "role": "caseTop",
+        "errorTargetMillimetres": 0.07,
+        "beforeTriangles": 201386,
+        "afterTriangles": 4396,
+        "beforeVertices": 100647,
+        "afterVertices": 5136,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": -46,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.06962695717811584
+      },
+      {
+        "node": "L_PCB_1.6mm",
+        "role": "pcb",
+        "errorTargetMillimetres": 0.04,
+        "beforeTriangles": 2252,
+        "afterTriangles": 820,
+        "beforeVertices": 1114,
+        "afterVertices": 398,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": -12,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03873865306377411
+      },
+      {
+        "node": "L_SW2_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05131038650870323
+      },
+      {
+        "node": "L_SW2_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03482018783688545
+      },
+      {
+        "node": "L_SW2_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 52,
+        "beforeVertices": 72,
+        "afterVertices": 28,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05067460611462593
+      },
+      {
+        "node": "L_SW3_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051320433616638184
+      },
+      {
+        "node": "L_SW3_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 191,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03446876257658005
+      },
+      {
+        "node": "L_SW3_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881647765636444
+      },
+      {
+        "node": "L_SW4_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051320433616638184
+      },
+      {
+        "node": "L_SW4_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03446876257658005
+      },
+      {
+        "node": "L_SW4_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881647765636444
+      },
+      {
+        "node": "L_SW5_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051320239901542664
+      },
+      {
+        "node": "L_SW5_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 338,
+        "beforeVertices": 834,
+        "afterVertices": 187,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03475402668118477
+      },
+      {
+        "node": "L_SW5_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881647765636444
+      },
+      {
+        "node": "L_SW6_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051320433616638184
+      },
+      {
+        "node": "L_SW6_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 338,
+        "beforeVertices": 834,
+        "afterVertices": 189,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03400881215929985
+      },
+      {
+        "node": "L_SW6_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881714075803757
+      },
+      {
+        "node": "L_SW8_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0513106994330883
+      },
+      {
+        "node": "L_SW8_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 348,
+        "beforeVertices": 834,
+        "afterVertices": 194,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03332782909274101
+      },
+      {
+        "node": "L_SW8_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 46,
+        "beforeVertices": 72,
+        "afterVertices": 25,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881662666797638
+      },
+      {
+        "node": "L_SW9_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05132020637392998
+      },
+      {
+        "node": "L_SW9_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 332,
+        "beforeVertices": 834,
+        "afterVertices": 185,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034652940928936005
+      },
+      {
+        "node": "L_SW9_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881647765636444
+      },
+      {
+        "node": "L_SW10_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051319852471351624
+      },
+      {
+        "node": "L_SW10_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 348,
+        "beforeVertices": 834,
+        "afterVertices": 195,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03374934569001198
+      },
+      {
+        "node": "L_SW10_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881647765636444
+      },
+      {
+        "node": "L_SW11_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 58,
+        "beforeVertices": 72,
+        "afterVertices": 31,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05132012814283371
+      },
+      {
+        "node": "L_SW11_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 344,
+        "beforeVertices": 834,
+        "afterVertices": 192,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03466527536511421
+      },
+      {
+        "node": "L_SW11_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881647765636444
+      },
+      {
+        "node": "L_SW12_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05132019519805908
+      },
+      {
+        "node": "L_SW12_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 338,
+        "beforeVertices": 834,
+        "afterVertices": 189,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034538861364126205
+      },
+      {
+        "node": "L_SW12_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05261205509305
+      },
+      {
+        "node": "L_SW14_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051310982555150986
+      },
+      {
+        "node": "L_SW14_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03342874348163605
+      },
+      {
+        "node": "L_SW14_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05882018432021141
+      },
+      {
+        "node": "L_SW15_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051319874823093414
+      },
+      {
+        "node": "L_SW15_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03479314222931862
+      },
+      {
+        "node": "L_SW15_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 46,
+        "beforeVertices": 72,
+        "afterVertices": 25,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881669372320175
+      },
+      {
+        "node": "L_SW16_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0513201542198658
+      },
+      {
+        "node": "L_SW16_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034998152405023575
+      },
+      {
+        "node": "L_SW16_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05880920961499214
+      },
+      {
+        "node": "L_SW17_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051319874823093414
+      },
+      {
+        "node": "L_SW17_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 336,
+        "beforeVertices": 834,
+        "afterVertices": 188,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03479263186454773
+      },
+      {
+        "node": "L_SW17_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 46,
+        "beforeVertices": 72,
+        "afterVertices": 25,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881897360086441
+      },
+      {
+        "node": "L_SW18_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051319874823093414
+      },
+      {
+        "node": "L_SW18_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 334,
+        "beforeVertices": 834,
+        "afterVertices": 186,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0331566222012043
+      },
+      {
+        "node": "L_SW18_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05267053470015526
+      },
+      {
+        "node": "L_SW19_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05123265087604523
+      },
+      {
+        "node": "L_SW19_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 189,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.033673107624053955
+      },
+      {
+        "node": "L_SW19_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881417542695999
+      },
+      {
+        "node": "L_SW20_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 62,
+        "beforeVertices": 72,
+        "afterVertices": 33,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05149700492620468
+      },
+      {
+        "node": "L_SW20_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 192,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034886762499809265
+      },
+      {
+        "node": "L_SW20_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05259092524647713
+      },
+      {
+        "node": "L_SW21_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 62,
+        "beforeVertices": 72,
+        "afterVertices": 33,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04736291617155075
+      },
+      {
+        "node": "L_SW21_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 336,
+        "beforeVertices": 834,
+        "afterVertices": 188,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03448380157351494
+      },
+      {
+        "node": "L_SW21_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881533399224281
+      },
+      {
+        "node": "L_Rubber_foot_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.052594609558582306
+      },
+      {
+        "node": "L_Rubber_foot_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05258521810173988
+      },
+      {
+        "node": "L_Rubber_foot_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.052559129893779755
+      },
+      {
+        "node": "L_Rubber_foot_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.052559129893779755
+      },
+      {
+        "node": "L_Battery_envelope_estimated",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 64,
+        "beforeVertices": 72,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05769616737961769
+      },
+      {
+        "node": "L_Controller_PCB_estimated",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 54,
+        "beforeVertices": 72,
+        "afterVertices": 29,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05367325246334076
+      },
+      {
+        "node": "L_Controller_RF_shield",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 44,
+        "beforeVertices": 72,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05550510436296463
+      },
+      {
+        "node": "L_Controller_header_-7.6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 42,
+        "beforeVertices": 72,
+        "afterVertices": 23,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05828477069735527
+      },
+      {
+        "node": "L_Header_pad_-7.6_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0487358495593071
+      },
+      {
+        "node": "L_Header_pad_-7.6_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735447227954865
+      },
+      {
+        "node": "L_Header_pad_-7.6_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0487358495593071
+      },
+      {
+        "node": "L_Header_pad_-7.6_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735447227954865
+      },
+      {
+        "node": "L_Header_pad_-7.6_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735346645116806
+      },
+      {
+        "node": "L_Header_pad_-7.6_5",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873603954911232
+      },
+      {
+        "node": "L_Header_pad_-7.6_6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873563349246979
+      },
+      {
+        "node": "L_Header_pad_-7.6_7",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873570799827576
+      },
+      {
+        "node": "L_Header_pad_-7.6_8",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735711723566055
+      },
+      {
+        "node": "L_Header_pad_-7.6_9",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873563349246979
+      },
+      {
+        "node": "L_Header_pad_-7.6_10",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873562604188919
+      },
+      {
+        "node": "L_Header_pad_-7.6_11",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735614866018295
+      },
+      {
+        "node": "L_Controller_header_7.6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 42,
+        "beforeVertices": 72,
+        "afterVertices": 23,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05828477069735527
+      },
+      {
+        "node": "L_Header_pad_7.6_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735909163951874
+      },
+      {
+        "node": "L_Header_pad_7.6_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873526841402054
+      },
+      {
+        "node": "L_Header_pad_7.6_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735909163951874
+      },
+      {
+        "node": "L_Header_pad_7.6_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873526841402054
+      },
+      {
+        "node": "L_Header_pad_7.6_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873569309711456
+      },
+      {
+        "node": "L_Header_pad_7.6_5",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873589798808098
+      },
+      {
+        "node": "L_Header_pad_7.6_6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873552918434143
+      },
+      {
+        "node": "L_Header_pad_7.6_7",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873577132821083
+      },
+      {
+        "node": "L_Header_pad_7.6_8",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735544085502625
+      },
+      {
+        "node": "L_Header_pad_7.6_9",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873639717698097
+      },
+      {
+        "node": "L_Header_pad_7.6_10",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735614866018295
+      },
+      {
+        "node": "L_Header_pad_7.6_11",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873548820614815
+      },
+      {
+        "node": "L_Display_PCB_14x36",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 42,
+        "beforeVertices": 72,
+        "afterVertices": 23,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05283907428383827
+      },
+      {
+        "node": "L_Display_bezel",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 46,
+        "beforeVertices": 72,
+        "afterVertices": 25,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05832939222455025
+      },
+      {
+        "node": "L_Display_dark_border",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 24,
+        "beforeVertices": 72,
+        "afterVertices": 14,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.049335356801748276
+      },
+      {
+        "node": "L_Display_pin_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03457494080066681
+      },
+      {
+        "node": "L_Display_pin_hole_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04224998876452446
+      },
+      {
+        "node": "L_Display_pin_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034573569893836975
+      },
+      {
+        "node": "L_Display_pin_hole_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.042249854654073715
+      },
+      {
+        "node": "L_Display_pin_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03457508236169815
+      },
+      {
+        "node": "L_Display_pin_hole_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.042248811572790146
+      },
+      {
+        "node": "L_Display_pin_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03457679599523544
+      },
+      {
+        "node": "L_Display_pin_hole_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04224934056401253
+      },
+      {
+        "node": "L_Display_pin_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03457494080066681
+      },
+      {
+        "node": "L_Display_pin_hole_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.042249877005815506
+      },
+      {
+        "node": "L_Acrylic_edge_0",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000036051220680486117
+      },
+      {
+        "node": "L_Acrylic_edge_1",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003865042444236974
+      },
+      {
+        "node": "L_Acrylic_edge_2",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003307405998121516
+      },
+      {
+        "node": "L_Acrylic_edge_3",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003825462805020408
+      },
+      {
+        "node": "L_Acrylic_edge_4",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003825462805020408
+      },
+      {
+        "node": "L_Acrylic_edge_5",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000038711160108669115
+      },
+      {
+        "node": "L_Acrylic_edge_6",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003865042444236974
+      },
+      {
+        "node": "L_Acrylic_edge_7",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031089073120544543
+      },
+      {
+        "node": "L_Acrylic_edge_8",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003315158081470527
+      },
+      {
+        "node": "L_Acrylic_edge_9",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000035608333608711892
+      },
+      {
+        "node": "L_Acrylic_edge_10",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 1.7763568394002505e-15
+      },
+      {
+        "node": "L_Acrylic_edge_11",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000034890000716135804
+      },
+      {
+        "node": "L_Acrylic_edge_12",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000033151580814709087
+      },
+      {
+        "node": "L_Acrylic_edge_13",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031046578909940156
+      },
+      {
+        "node": "L_Acrylic_edge_14",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003865042444236974
+      },
+      {
+        "node": "L_Acrylic_edge_15",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003631020775743786
+      },
+      {
+        "node": "L_Acrylic_edge_16",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000038254628050234235
+      },
+      {
+        "node": "L_Acrylic_edge_17",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003825462805020408
+      },
+      {
+        "node": "L_Acrylic_edge_18",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003631020775743786
+      },
+      {
+        "node": "L_Acrylic_edge_19",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000038650424442330735
+      },
+      {
+        "node": "L_Acrylic_edge_20",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031046578909929602
+      },
+      {
+        "node": "L_Acrylic_edge_21",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003315158081470527
+      },
+      {
+        "node": "L_Acrylic_edge_22",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000034890000716135804
+      },
+      {
+        "node": "L_Acrylic_edge_23",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 3.552713678800501e-15
+      },
+      {
+        "node": "L_Acrylic_edge_24",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000033976539257692602
+      },
+      {
+        "node": "L_Acrylic_edge_25",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.00000347892801482555
+      },
+      {
+        "node": "L_Acrylic_edge_26",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003364907959797019
+      },
+      {
+        "node": "L_Acrylic_edge_27",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000035496149051486844
+      },
+      {
+        "node": "L_Acrylic_edge_28",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000037379710654424896
+      },
+      {
+        "node": "L_Acrylic_edge_29",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031636386062239082
+      },
+      {
+        "node": "L_Acrylic_edge_30",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002494337626670717
+      },
+      {
+        "node": "L_Acrylic_edge_31",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002878855194632466
+      },
+      {
+        "node": "L_Acrylic_edge_32",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002692072225155372
+      },
+      {
+        "node": "L_Acrylic_edge_33",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001908596927144667
+      },
+      {
+        "node": "L_Acrylic_edge_34",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000019076145946169927
+      },
+      {
+        "node": "L_Acrylic_edge_35",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001842567225128197
+      },
+      {
+        "node": "L_Acrylic_edge_36",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001795780103085259
+      },
+      {
+        "node": "L_Acrylic_edge_37",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.00000193774565740929
+      },
+      {
+        "node": "L_Acrylic_edge_38",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002113284902669342
+      },
+      {
+        "node": "L_Acrylic_edge_39",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002495474686209784
+      },
+      {
+        "node": "L_Acrylic_edge_40",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000022393161424743073
+      },
+      {
+        "node": "L_Acrylic_edge_41",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001815665890955738
+      },
+      {
+        "node": "L_Acrylic_edge_42",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000021400270596170913
+      },
+      {
+        "node": "L_Acrylic_edge_43",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002719286064321991
+      },
+      {
+        "node": "L_Acrylic_edge_44",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002933013344577549
+      },
+      {
+        "node": "L_Acrylic_edge_45",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000024216632064647333
+      },
+      {
+        "node": "L_Acrylic_edge_46",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000032810791170632282
+      },
+      {
+        "node": "L_Acrylic_edge_47",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000032457274142773
+      },
+      {
+        "node": "L_Acrylic_edge_48",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000029939750618736506
+      },
+      {
+        "node": "L_Acrylic_edge_49",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000034123377540574096
+      },
+      {
+        "node": "L_Acrylic_edge_50",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003413003022413833
+      },
+      {
+        "node": "L_Acrylic_edge_51",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 3.552713678800501e-15
+      },
+      {
+        "node": "L_Acrylic_edge_52",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003585297657822495
+      },
+      {
+        "node": "L_Acrylic_edge_53",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000033151580814709087
+      },
+      {
+        "node": "L_White_battery_connector",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05348341166973114
+      },
+      {
+        "node": "L_Red_wire_photo_routing",
+        "role": "wiring",
+        "errorTargetMillimetres": 0.04,
+        "beforeTriangles": 1916,
+        "afterTriangles": 562,
+        "beforeVertices": 960,
+        "afterVertices": 283,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03995457664132118
+      },
+      {
+        "node": "L_Black_wire_photo_routing",
+        "role": "wiring",
+        "errorTargetMillimetres": 0.04,
+        "beforeTriangles": 1916,
+        "afterTriangles": 602,
+        "beforeVertices": 960,
+        "afterVertices": 303,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.039930474013090134
+      },
+      {
+        "node": "case_bottom_right",
+        "role": "caseBottom",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 134286,
+        "afterTriangles": 3454,
+        "beforeVertices": 67145,
+        "afterVertices": 3322,
+        "protectedNeighbourhoodPasses": 1,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05858578905463219
+      },
+      {
+        "node": "case_top_right",
+        "role": "caseTop",
+        "errorTargetMillimetres": 0.07,
+        "beforeTriangles": 201386,
+        "afterTriangles": 4414,
+        "beforeVertices": 100647,
+        "afterVertices": 5233,
+        "protectedNeighbourhoodPasses": 1,
+        "topology": {
+          "euler": -46,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.06963153183460236
+      },
+      {
+        "node": "R_PCB_1.6mm",
+        "role": "pcb",
+        "errorTargetMillimetres": 0.04,
+        "beforeTriangles": 2252,
+        "afterTriangles": 824,
+        "beforeVertices": 1114,
+        "afterVertices": 400,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": -12,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.039924975484609604
+      },
+      {
+        "node": "R_SW2_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051407162100076675
+      },
+      {
+        "node": "R_SW2_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 189,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03340120613574982
+      },
+      {
+        "node": "R_SW2_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 52,
+        "beforeVertices": 72,
+        "afterVertices": 28,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.052677009254693985
+      },
+      {
+        "node": "R_SW3_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05133520066738129
+      },
+      {
+        "node": "R_SW3_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 336,
+        "beforeVertices": 834,
+        "afterVertices": 188,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034485310316085815
+      },
+      {
+        "node": "R_SW3_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05884665995836258
+      },
+      {
+        "node": "R_SW4_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05133520066738129
+      },
+      {
+        "node": "R_SW4_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 346,
+        "beforeVertices": 834,
+        "afterVertices": 194,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034460488706827164
+      },
+      {
+        "node": "R_SW4_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05884665995836258
+      },
+      {
+        "node": "R_SW5_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051332131028175354
+      },
+      {
+        "node": "R_SW5_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 336,
+        "beforeVertices": 834,
+        "afterVertices": 188,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03475479781627655
+      },
+      {
+        "node": "R_SW5_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05884665995836258
+      },
+      {
+        "node": "R_SW6_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 58,
+        "beforeVertices": 72,
+        "afterVertices": 31,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05142458155751228
+      },
+      {
+        "node": "R_SW6_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0337088368833065
+      },
+      {
+        "node": "R_SW6_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05881974473595619
+      },
+      {
+        "node": "R_SW8_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0513501912355423
+      },
+      {
+        "node": "R_SW8_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03361664339900017
+      },
+      {
+        "node": "R_SW8_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05267005413770676
+      },
+      {
+        "node": "R_SW9_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051457565277814865
+      },
+      {
+        "node": "R_SW9_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 338,
+        "beforeVertices": 834,
+        "afterVertices": 188,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03465216979384422
+      },
+      {
+        "node": "R_SW9_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058862775564193726
+      },
+      {
+        "node": "R_SW10_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05135798454284668
+      },
+      {
+        "node": "R_SW10_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 346,
+        "beforeVertices": 834,
+        "afterVertices": 194,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.033774688839912415
+      },
+      {
+        "node": "R_SW10_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058862775564193726
+      },
+      {
+        "node": "R_SW11_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05151377245783806
+      },
+      {
+        "node": "R_SW11_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 340,
+        "beforeVertices": 834,
+        "afterVertices": 189,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034669388085603714
+      },
+      {
+        "node": "R_SW11_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05884665995836258
+      },
+      {
+        "node": "R_SW12_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05140727013349533
+      },
+      {
+        "node": "R_SW12_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 338,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034485168755054474
+      },
+      {
+        "node": "R_SW12_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058654606342315674
+      },
+      {
+        "node": "R_SW14_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051349978893995285
+      },
+      {
+        "node": "R_SW14_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 344,
+        "beforeVertices": 834,
+        "afterVertices": 193,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03357216715812683
+      },
+      {
+        "node": "R_SW14_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05882154405117035
+      },
+      {
+        "node": "R_SW15_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05137104168534279
+      },
+      {
+        "node": "R_SW15_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 350,
+        "beforeVertices": 834,
+        "afterVertices": 195,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03341129794716835
+      },
+      {
+        "node": "R_SW15_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05265771597623825
+      },
+      {
+        "node": "R_SW16_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05138634517788887
+      },
+      {
+        "node": "R_SW16_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 193,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03344162553548813
+      },
+      {
+        "node": "R_SW16_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058819159865379333
+      },
+      {
+        "node": "R_SW17_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05137104168534279
+      },
+      {
+        "node": "R_SW17_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 190,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0334496907889843
+      },
+      {
+        "node": "R_SW17_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058958619832992554
+      },
+      {
+        "node": "R_SW18_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051398929208517075
+      },
+      {
+        "node": "R_SW18_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 192,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03477755934000015
+      },
+      {
+        "node": "R_SW18_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05887298658490181
+      },
+      {
+        "node": "R_SW19_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05132181942462921
+      },
+      {
+        "node": "R_SW19_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 342,
+        "beforeVertices": 834,
+        "afterVertices": 192,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.033743128180503845
+      },
+      {
+        "node": "R_SW19_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05885586887598038
+      },
+      {
+        "node": "R_SW20_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 62,
+        "beforeVertices": 72,
+        "afterVertices": 33,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05128990858793259
+      },
+      {
+        "node": "R_SW20_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 346,
+        "beforeVertices": 834,
+        "afterVertices": 193,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03387157991528511
+      },
+      {
+        "node": "R_SW20_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 50,
+        "beforeVertices": 72,
+        "afterVertices": 27,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05898632854223251
+      },
+      {
+        "node": "R_SW21_Choc_switch",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 54,
+        "beforeVertices": 72,
+        "afterVertices": 29,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05584775656461716
+      },
+      {
+        "node": "R_SW21_Keycap",
+        "role": "keycap",
+        "errorTargetMillimetres": 0.035,
+        "beforeTriangles": 1536,
+        "afterTriangles": 332,
+        "beforeVertices": 834,
+        "afterVertices": 185,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034926049411296844
+      },
+      {
+        "node": "R_SW21_Socket",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05892142653465271
+      },
+      {
+        "node": "R_Rubber_foot_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05256771668791771
+      },
+      {
+        "node": "R_Rubber_foot_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05256759375333786
+      },
+      {
+        "node": "R_Rubber_foot_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.052561670541763306
+      },
+      {
+        "node": "R_Rubber_foot_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 64,
+        "beforeVertices": 66,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.052561670541763306
+      },
+      {
+        "node": "R_Battery_envelope_estimated",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 64,
+        "beforeVertices": 72,
+        "afterVertices": 34,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.057081371545791626
+      },
+      {
+        "node": "R_Controller_PCB_estimated",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 56,
+        "beforeVertices": 72,
+        "afterVertices": 30,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.05706533044576645
+      },
+      {
+        "node": "R_Controller_RF_shield",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 40,
+        "beforeVertices": 72,
+        "afterVertices": 22,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.055477485060691833
+      },
+      {
+        "node": "R_Controller_header_-7.6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 40,
+        "beforeVertices": 72,
+        "afterVertices": 22,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.055379074066877365
+      },
+      {
+        "node": "R_Header_pad_-7.6_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873587563633919
+      },
+      {
+        "node": "R_Header_pad_-7.6_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0487355962395668
+      },
+      {
+        "node": "R_Header_pad_-7.6_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873587563633919
+      },
+      {
+        "node": "R_Header_pad_-7.6_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0487355962395668
+      },
+      {
+        "node": "R_Header_pad_-7.6_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873565211892128
+      },
+      {
+        "node": "R_Header_pad_-7.6_5",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873590171337128
+      },
+      {
+        "node": "R_Header_pad_-7.6_6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873564466834068
+      },
+      {
+        "node": "R_Header_pad_-7.6_7",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735398799180984
+      },
+      {
+        "node": "R_Header_pad_-7.6_8",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735424876213074
+      },
+      {
+        "node": "R_Header_pad_-7.6_9",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873541370034218
+      },
+      {
+        "node": "R_Header_pad_-7.6_10",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735931515693665
+      },
+      {
+        "node": "R_Header_pad_-7.6_11",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873562604188919
+      },
+      {
+        "node": "R_Controller_header_7.6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 40,
+        "beforeVertices": 72,
+        "afterVertices": 22,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.055379074066877365
+      },
+      {
+        "node": "R_Header_pad_7.6_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873549938201904
+      },
+      {
+        "node": "R_Header_pad_7.6_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873528704047203
+      },
+      {
+        "node": "R_Header_pad_7.6_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873549938201904
+      },
+      {
+        "node": "R_Header_pad_7.6_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873528704047203
+      },
+      {
+        "node": "R_Header_pad_7.6_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735715448856354
+      },
+      {
+        "node": "R_Header_pad_7.6_5",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873548448085785
+      },
+      {
+        "node": "R_Header_pad_7.6_6",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873573035001755
+      },
+      {
+        "node": "R_Header_pad_7.6_7",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873548820614815
+      },
+      {
+        "node": "R_Header_pad_7.6_8",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735685646533966
+      },
+      {
+        "node": "R_Header_pad_7.6_9",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735663294792175
+      },
+      {
+        "node": "R_Header_pad_7.6_10",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04873549938201904
+      },
+      {
+        "node": "R_Header_pad_7.6_11",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.048735443502664566
+      },
+      {
+        "node": "R_Display_PCB_14x36",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 44,
+        "beforeVertices": 72,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.051397234201431274
+      },
+      {
+        "node": "R_Display_bezel",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 46,
+        "beforeVertices": 72,
+        "afterVertices": 25,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058365561068058014
+      },
+      {
+        "node": "R_Display_dark_border",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 26,
+        "beforeVertices": 72,
+        "afterVertices": 15,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.058224115520715714
+      },
+      {
+        "node": "R_Display_pin_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034574948251247406
+      },
+      {
+        "node": "R_Display_pin_hole_0",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.042250148952007294
+      },
+      {
+        "node": "R_Display_pin_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0345749631524086
+      },
+      {
+        "node": "R_Display_pin_hole_1",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.042250026017427444
+      },
+      {
+        "node": "R_Display_pin_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03457268700003624
+      },
+      {
+        "node": "R_Display_pin_hole_2",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04224886745214462
+      },
+      {
+        "node": "R_Display_pin_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.03457298129796982
+      },
+      {
+        "node": "R_Display_pin_hole_3",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04224944859743118
+      },
+      {
+        "node": "R_Display_pin_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 30,
+        "beforeVertices": 66,
+        "afterVertices": 17,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.034574948251247406
+      },
+      {
+        "node": "R_Display_pin_hole_4",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 128,
+        "afterTriangles": 28,
+        "beforeVertices": 66,
+        "afterVertices": 16,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.04225002974271774
+      },
+      {
+        "node": "R_Acrylic_edge_0",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000036051220680486117
+      },
+      {
+        "node": "R_Acrylic_edge_1",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003865042444236974
+      },
+      {
+        "node": "R_Acrylic_edge_2",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003307405998121516
+      },
+      {
+        "node": "R_Acrylic_edge_3",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003825462805020408
+      },
+      {
+        "node": "R_Acrylic_edge_4",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003825462805020408
+      },
+      {
+        "node": "R_Acrylic_edge_5",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000038711160108669115
+      },
+      {
+        "node": "R_Acrylic_edge_6",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003865042444236974
+      },
+      {
+        "node": "R_Acrylic_edge_7",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031089073120544543
+      },
+      {
+        "node": "R_Acrylic_edge_8",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003315158081470527
+      },
+      {
+        "node": "R_Acrylic_edge_9",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000035608333608711892
+      },
+      {
+        "node": "R_Acrylic_edge_10",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 1.7763568394002505e-15
+      },
+      {
+        "node": "R_Acrylic_edge_11",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000034890000716135804
+      },
+      {
+        "node": "R_Acrylic_edge_12",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000033151580814709087
+      },
+      {
+        "node": "R_Acrylic_edge_13",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031046578909940156
+      },
+      {
+        "node": "R_Acrylic_edge_14",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003865042444236974
+      },
+      {
+        "node": "R_Acrylic_edge_15",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003631020775743786
+      },
+      {
+        "node": "R_Acrylic_edge_16",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000038254628050234235
+      },
+      {
+        "node": "R_Acrylic_edge_17",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003825462805020408
+      },
+      {
+        "node": "R_Acrylic_edge_18",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003631020775743786
+      },
+      {
+        "node": "R_Acrylic_edge_19",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000038650424442330735
+      },
+      {
+        "node": "R_Acrylic_edge_20",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031046578909929602
+      },
+      {
+        "node": "R_Acrylic_edge_21",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003315158081470527
+      },
+      {
+        "node": "R_Acrylic_edge_22",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000034890000716135804
+      },
+      {
+        "node": "R_Acrylic_edge_23",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 3.552713678800501e-15
+      },
+      {
+        "node": "R_Acrylic_edge_24",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000033976539257692602
+      },
+      {
+        "node": "R_Acrylic_edge_25",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.00000347892801482555
+      },
+      {
+        "node": "R_Acrylic_edge_26",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003364907959797019
+      },
+      {
+        "node": "R_Acrylic_edge_27",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000035496149051486844
+      },
+      {
+        "node": "R_Acrylic_edge_28",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000037379710654424896
+      },
+      {
+        "node": "R_Acrylic_edge_29",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000031636386062239082
+      },
+      {
+        "node": "R_Acrylic_edge_30",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002494337626670717
+      },
+      {
+        "node": "R_Acrylic_edge_31",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002878855194632466
+      },
+      {
+        "node": "R_Acrylic_edge_32",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002692072225155372
+      },
+      {
+        "node": "R_Acrylic_edge_33",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001908596927144667
+      },
+      {
+        "node": "R_Acrylic_edge_34",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000019076145946169927
+      },
+      {
+        "node": "R_Acrylic_edge_35",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001842567225128197
+      },
+      {
+        "node": "R_Acrylic_edge_36",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001795780103085259
+      },
+      {
+        "node": "R_Acrylic_edge_37",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.00000193774565740929
+      },
+      {
+        "node": "R_Acrylic_edge_38",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002113284902669342
+      },
+      {
+        "node": "R_Acrylic_edge_39",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002495474686209784
+      },
+      {
+        "node": "R_Acrylic_edge_40",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000022393161424743073
+      },
+      {
+        "node": "R_Acrylic_edge_41",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000001815665890955738
+      },
+      {
+        "node": "R_Acrylic_edge_42",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000021400270596170913
+      },
+      {
+        "node": "R_Acrylic_edge_43",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002719286064321991
+      },
+      {
+        "node": "R_Acrylic_edge_44",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000002933013344577549
+      },
+      {
+        "node": "R_Acrylic_edge_45",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000024216632064647333
+      },
+      {
+        "node": "R_Acrylic_edge_46",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000032810791170632282
+      },
+      {
+        "node": "R_Acrylic_edge_47",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000032457274142773
+      },
+      {
+        "node": "R_Acrylic_edge_48",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000029939750618736506
+      },
+      {
+        "node": "R_Acrylic_edge_49",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000034123377540574096
+      },
+      {
+        "node": "R_Acrylic_edge_50",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003413003022413833
+      },
+      {
+        "node": "R_Acrylic_edge_51",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 3.552713678800501e-15
+      },
+      {
+        "node": "R_Acrylic_edge_52",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.000003585297657822495
+      },
+      {
+        "node": "R_Acrylic_edge_53",
+        "role": "glassRim",
+        "errorTargetMillimetres": 0.001,
+        "beforeTriangles": 1916,
+        "afterTriangles": 44,
+        "beforeVertices": 960,
+        "afterVertices": 24,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "sampled ring-column chord distance",
+        "reportedErrorMillimetres": 0.0000033151580814709087
+      },
+      {
+        "node": "R_White_battery_connector",
+        "role": "detail",
+        "errorTargetMillimetres": 0.06,
+        "beforeTriangles": 140,
+        "afterTriangles": 48,
+        "beforeVertices": 72,
+        "afterVertices": 26,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.053468842059373856
+      },
+      {
+        "node": "R_Red_wire_photo_routing",
+        "role": "wiring",
+        "errorTargetMillimetres": 0.04,
+        "beforeTriangles": 1916,
+        "afterTriangles": 562,
+        "beforeVertices": 960,
+        "afterVertices": 283,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.0394805446267128
+      },
+      {
+        "node": "R_Black_wire_photo_routing",
+        "role": "wiring",
+        "errorTargetMillimetres": 0.04,
+        "beforeTriangles": 1916,
+        "afterTriangles": 604,
+        "beforeVertices": 960,
+        "afterVertices": 304,
+        "protectedNeighbourhoodPasses": 0,
+        "topology": {
+          "euler": 2,
+          "boundaryEdges": 0,
+          "nonManifoldEdges": 0
+        },
+        "errorMetric": "meshoptimizer",
+        "reportedErrorMillimetres": 0.039969198405742645
+      }
+    ],
+    "effectiveTriangles": 49186,
+    "note": "Selected surfaces simplified according to per-part error targets. Positions and UVs retain exact source values; case normals are baked from the detailed source with sharp creases and flat panels preserved. All transforms, hardware/glass aperture geometry and PBR textures are unchanged. Error is meshoptimizer's metric, not a measured Hausdorff bound."
+  },
+  "runtimeGeometryLimits": {
+    "caseEffectiveTriangles": 16000,
+    "skinnyTriangles": 350,
     "degenerateTriangles": 0
   }
 }

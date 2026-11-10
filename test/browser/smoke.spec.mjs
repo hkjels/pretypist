@@ -124,7 +124,7 @@ test("package theme preview is validated before installation", async ({ page }) 
   const importedLayout = sourceLayout
     .replace(':package/id "modified-engram"', ':package/id "browser-theme-proof"')
     .replace(':package/name "Modified Engram"', ':package/name "Browser Theme Proof"')
-    .replace(":package/revision 12", ":package/revision 1");
+    .replace(/:package\/revision \d+/, ":package/revision 1");
   const zip = new JSZip();
   zip.file("layout.edn", importedLayout);
   zip.file("model.glb", await readFile(path.join(sourceDirectory, "model.glb")));

@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./test/browser",
-  // The selected full-detail CAD GLB has ~959k triangles. Long end-to-end
+  // The selected compact CAD GLB has ~49k triangles. Long end-to-end
   // journeys need more total time on Chromium's headless software renderer;
   // individual assertions retain Playwright's normal, short timeout.
   timeout: 120_000,

@@ -3,10 +3,9 @@ import { gzipSync } from "node:zlib";
 
 export const budgets = Object.freeze({
   javascriptGzipBytes: 420 * 1024,
-  // Revision 12 adds embedded surface maps/UVs and explicit key/fastener normals
-  // to the selected CAD asset. Case topology and source identity remain pinned.
-  modelBytes: 16.5 * 1024 * 1024,
-  packageBytes: 16.75 * 1024 * 1024,
+  // Revision 14 caps the complete model at 50k triangles and bakes case normals.
+  modelBytes: 1.5 * 1024 * 1024,
+  packageBytes: 0.75 * 1024 * 1024,
 });
 
 const artifacts = {
