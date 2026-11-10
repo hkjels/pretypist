@@ -44,7 +44,7 @@
       (header-select "header-mode" "mode-select" [:t :a11y/training-mode]
                      mode [:mode/select]
                      (mapv (fn [candidate] [candidate (trainer/mode-name-key candidate)])
-                           trainer/mode-order))
+                           (state-model/available-modes state)))
       [:button.icon-button.settings-button
        {:id "settings-button"
         :type "button"
@@ -59,7 +59,7 @@
         continuation? (and (= :idle (get-in state [:session :status]))
                            (some? (continuity/insight
                                    (:recent-summaries state)
-                                   (get-in state [:progress :next-prescription])
+                                   (state-model/current-prescription state)
                                    (get-in state [:app :wall-now]))))
         onboarding? (and (not (landing/active? (:landing state)))
                          (onboarding/active? (:onboarding state)))]

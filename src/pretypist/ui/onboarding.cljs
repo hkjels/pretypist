@@ -10,11 +10,12 @@
             [pretypist.ui.trainer :as trainer]))
 
 (defn- progress [state]
-  (let [current (onboarding/progress-index (:onboarding state))]
+  (let [total (if (state/gesture-practice-available? state) 3 2)
+        current (min total (onboarding/progress-index (:onboarding state)))]
     [:div.onboarding-progress
-     [:span [:t :onboarding/calibration-progress {:current current}]]
+     [:span [:t :onboarding/calibration-progress {:current current :total total}]]
      [:div.onboarding-progress-dots {:aria-hidden "true"}
-      (for [index (range 1 4)]
+      (for [index (range 1 (inc total))]
         [:i {:replicant/key index
              :class [(when (< index current) "is-complete")
                      (when (= index current) "is-current")]}])]]))

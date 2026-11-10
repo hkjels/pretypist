@@ -431,6 +431,26 @@
     (is (some #{[:persistence/save-onboarding]} effects))
     (is (some #{[:scene/sync]} effects))))
 
+(deftest loading-a-layout-without-strokes-leaves-gesture-practice-test
+  (let [checkpoint (-> (onboarding/initial-state)
+                       (assoc :step :layers :phase :transfer-ready :gesture-index 3))
+        previous (-> (state/initial-state)
+                     (assoc :onboarding checkpoint)
+                     (assoc-in [:settings :mode] :layers)
+                     (assoc-in [:layer-trainer :transfer?] true)
+                     (assoc-in [:layout :active] gesture-layout)
+                     (assoc-in [:progress :next-prescription] {:mode :layers}))
+        effects (nexus/layout-loaded previous {:layout {:package/id "one-piece-example"}} false)
+        loaded (second (first effects))]
+    (is (= [:result :reflection] ((juxt :step :phase) (:onboarding loaded))))
+    (is (some #{[:persistence/save-onboarding]} effects))
+    (is (= :flow (get-in loaded [:settings :mode])))
+    (is (not (get-in loaded [:layer-trainer :transfer?])))
+    (is (nil? (state/current-target loaded)))
+    (is (nil? (state/current-prescription loaded)))
+    (is (empty? (nexus/mode-select loaded :layers)))
+    (is (empty? (nexus/onboarding-gestures-start loaded 100)))))
+
 (deftest onboarding-session-two-starts-visible-authored-chunks-test
   (let [initial (-> (state/initial-state)
                     (assoc :corpora {:en [{:id :phrases :title "Phrases"

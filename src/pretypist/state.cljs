@@ -37,6 +37,15 @@
    {:character "?" :layer :sym :key-id :k07 :label "one-shot SYM + ?"}
    {:character "@" :layer :sym :key-id :k04 :label "one-shot SYM + @"}])
 
+(defn initial-layer-trainer [layout]
+  {:stage :explore
+   :active-layer (or (:layout/default-layer layout) :base)
+   :target-index 0
+   :last-trained-target nil
+   :transfer-offered? false
+   :hint-visible? false
+   :transfer? false})
+
 (defn initial-state []
   {:app {:status :loading
          :webgl :unknown
@@ -61,13 +70,7 @@
    :landing (landing/initial-state)
    :onboarding (onboarding/initial-state)
    :session nil
-   :layer-trainer {:stage :explore
-                   :active-layer :base
-                   :target-index 0
-                   :last-trained-target nil
-                   :transfer-offered? false
-                   :hint-visible? false
-                   :transfer? false}
+   :layer-trainer (initial-layer-trainer nil)
    :ui {:settings-open? false
         :composing? false
         :reset-confirmation? false
@@ -97,6 +100,9 @@
      :key-id key-id
      :label character}))
 
+(defn- trainable-stroke? [[character steps]]
+  (and (string? character) (= 1 (count character)) (seq steps)))
+
 (defn training-targets
   "Resolves familiar course targets against the active package, then fills
   the course from that package's own character-to-stroke index. This keeps an
@@ -110,28 +116,40 @@
                                       (target-from-stroke layout (:character target))))))
         preferred-characters (set (map :character preferred))
         extras (->> (:strokes layout)
-                    (remove (fn [[character stroke]]
-                              (or (contains? preferred-characters character)
-                                  (not (string? character))
-                                  (not= 1 (count character))
-                                  (empty? stroke))))
+                    (filter trainable-stroke?)
+                    (remove (comp preferred-characters first))
                     (sort-by (fn [[character stroke]]
                                [(if (> (count stroke) 1) 0 1) character]))
                     (mapv (fn [[character _]]
-                            (target-from-stroke layout character))))
-        targets (vec (concat preferred extras))]
-    (if (seq targets) targets layer-targets)))
+                            (target-from-stroke layout character))))]
+    (into preferred extras)))
+
+(defn gesture-practice-available? [state]
+  (boolean (some trainable-stroke? (get-in state [:layout :active :strokes]))))
+
+(defn available-modes [state]
+  (cond-> [:flow :horizon :chunks]
+    (gesture-practice-available? state) (conj :layers)))
+
+(defn current-prescription [state]
+  (let [prescription (get-in state [:progress :next-prescription])]
+    (when (or (not= :layers (:mode prescription))
+              (gesture-practice-available? state))
+      prescription)))
 
 (defn onboarding-targets [state]
   (vec (take onboarding/required-gestures (cycle (training-targets state)))))
 
-(defn current-target [state]
-  (let [targets (training-targets state)]
-    (nth targets (mod (get-in state [:layer-trainer :target-index]) (count targets)))))
+(defn current-target
+  ([state] (current-target state (get-in state [:layer-trainer :target-index] 0)))
+  ([state index]
+   (let [targets (training-targets state)]
+     (when (seq targets)
+       (nth targets (mod index (count targets)))))))
 
 (defn transfer-target [state]
-  (or (get-in state [:layer-trainer :last-trained-target])
-      (current-target state)))
+  (when-let [target (current-target state)]
+    (or (get-in state [:layer-trainer :last-trained-target]) target)))
 
 (defn scene-presentation [state]
   (let [mode (get-in state [:settings :mode])
@@ -201,7 +219,7 @@
      :current-passage-id (get-in state [:session :passage-id])}))
 
 (defn select-passage-prescription
-  ([state] (select-passage-prescription state (get-in state [:progress :next-prescription])))
+  ([state] (select-passage-prescription state (current-prescription state)))
   ([state prescription]
    (selector/select-passage (keep #(trim-passage state %) (passages state))
                              (selection-context state prescription))))

@@ -28,7 +28,7 @@ See the [docs](docs/README.md) for keyboard integration and development.
 
 ## License
 
-The app code is MIT licensed, as declared in [package.json](package.json).
+The app code is licensed under the [MIT License](LICENSE).
 See the [Chocofi hardware notice](resources/layout-sources/modified-engram/upstream/chocofi-case-v1/NOTICE.md)
 and [ZMK display notice](resources/layout-sources/modified-engram/display/NOTICE.md)
 for the bundled assets.

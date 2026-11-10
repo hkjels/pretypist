@@ -14,18 +14,24 @@ layouts and remove imported layouts that aren't active.
 
 ## Build a layout package
 
-Use the [package format and schema](package-format.md) as a reference and the
-[built-in layout.edn](../resources/layout-sources/modified-engram/layout.edn)
-as a working example. The Chocofi's key count and naming convention are
-specific to that layout.
+Start with the [One-Piece Example](../resources/public/layouts/one-piece-example.pretypist):
+a 31-key QWERTY board with one case, one layer, and no display or gesture
+mappings. Its [source layout](../resources/layout-sources/one-piece-example/layout.edn)
+is a minimal working example. Run `npm run package:example` to rebuild it.
+Without a usable `:strokes` mapping, calibration ends after phrase rhythm and
+the Layers mode is unavailable. Prose practice still works.
+
+Use the [package format and schema](package-format.md) as a reference. The
+[built-in layout](../resources/layout-sources/modified-engram/layout.edn)
+shows a split board with layers, gestures, and displays.
 
 1. Create a source directory containing `layout.edn` and a self-contained
    `model.glb`; optionally add `preview.webp` and `README.md`.
 2. Give the package a stable, unique `:package/id` and start at
    `:package/revision 1`. Define physical keys independently from layer
    bindings, and map every key explicitly to a named, renderable GLB object.
-3. Define semantic layers and legends, then add `:strokes` for every character
-   or multi-character output the Layers trainer should visualize. Put
+3. Define semantic layers and legends. For gesture practice, add `:strokes` for
+   the outputs the Layers trainer should visualize. Put
    host-specific HID details in `:host-profiles`, not in display legends.
 4. From the repository root, build a package with the repository tool:
 

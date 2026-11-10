@@ -100,24 +100,40 @@
         installed (if (some #(= id (:id %)) (get-in state [:layout :installed]))
                     (mapv #(if (= id (:id %)) (merge % metadata) %) (get-in state [:layout :installed]))
                     (conj (get-in state [:layout :installed]) metadata))
-        next-state (cond-> (-> state
-                               (assoc-in [:layout :status] :ready)
-                               (assoc-in [:layout :error] nil)
-                               (assoc-in [:layout :active] layout)
-                               (assoc-in [:layout :installed] installed)
-                               (assoc-in [:settings :active-layout] id)
-                               (assoc-in [:ui :validation-errors] [])
-                               (assoc-in [:ui :layout-import-preview] nil)
-                               state/resolve-active-theme)
-                     (not builtin?)
-                     (assoc-in [:ui :notice] [:t :layout/imported {:name (:package/name layout)}]))]
-    [[:state/set next-state]
-     [:layout/cache-active package-result]
-     [:layout/clear-pending]
-     [:scene/load-active]
-     [:persistence/save-settings]
-     [:persistence/save-layouts]
-     [:boot/maybe-ready]]))
+        loaded (cond-> (-> state
+                           (assoc-in [:layout :status] :ready)
+                           (assoc-in [:layout :error] nil)
+                           (assoc-in [:layout :active] layout)
+                           (assoc-in [:layout :installed] installed)
+                           (assoc-in [:settings :active-layout] id)
+                           (assoc-in [:ui :validation-errors] [])
+                           (assoc-in [:ui :layout-import-preview] nil)
+                           state/resolve-active-theme)
+                 (not builtin?)
+                 (assoc-in [:ui :notice] [:t :layout/imported {:name (:package/name layout)}]))
+        gestures? (state/gesture-practice-available? loaded)
+        calibrating? (onboarding/active? (:onboarding loaded))
+        skip-gestures? (and (not gestures?) calibrating?
+                            (= :layers (get-in loaded [:onboarding :step])))
+        leave-layers? (and (not gestures?) (= :layers (get-in loaded [:settings :mode])))
+        next-state (cond-> loaded
+                     (not= layout (get-in state [:layout :active]))
+                     (-> (assoc :layer-trainer (state/initial-layer-trainer layout))
+                         (assoc-in [:ui :gesture-playback] nil))
+                     skip-gestures? (update :onboarding onboarding/skip-layer-practice)
+                     (or skip-gestures? leave-layers?) (assoc :session nil)
+                     leave-layers? (assoc-in [:settings :mode] :flow))
+        next-state (if (and leave-layers? (not calibrating?))
+                     (assoc next-state :session (idle-session next-state (get-in state [:app :now])))
+                     next-state)]
+    (cond-> [[:state/set next-state]
+             [:layout/cache-active package-result]
+             [:layout/clear-pending]
+             [:scene/load-active]
+             [:persistence/save-settings]
+             [:persistence/save-layouts]
+             [:boot/maybe-ready]]
+      skip-gestures? (conj [:persistence/save-onboarding]))))
 
 (defn layout-failed [state errors]
   [[:state/set
@@ -216,7 +232,8 @@
                      :rhythm {:boundary-opacity 1 :max-words 4 :step 0}
                      :layers {:weak-transition-frequency 0.15}
                      {:punctuation-density 0})]
-    (if-let [passage (onboarding-passage state step)]
+    (if-let [passage (when (or (not= step :layers) (state/gesture-practice-available? state))
+                       (onboarding-passage state step))]
       (let [session (assoc (input/new-session passage mode timestamp)
                            :run-kind :calibration
                            :calibration-step step
@@ -238,7 +255,7 @@
       [])))
 
 (defn onboarding-gestures-start [state _timestamp]
-  (let [target (first state/layer-targets)]
+  (if-let [target (state/current-target state 0)]
     [[:state/set (-> state
                      (assoc :session nil)
                      (assoc-in [:settings :mode] :layers)
@@ -251,12 +268,13 @@
      [:persistence/save-onboarding]
      [:persistence/save-settings]
      [:scene/sync]
-     [:dom/focus-input]]))
+     [:dom/focus-input]]
+    []))
 
 (defn onboarding-continue [state]
   [[:state/set (-> state
                    (assoc :session nil)
-                   (assoc :onboarding (onboarding/continue (:onboarding state))))]
+                   (update :onboarding onboarding/continue (state/gesture-practice-available? state)))]
    [:persistence/save-onboarding]
    [:scene/sync]])
 
@@ -283,20 +301,22 @@
      [:scene/sync]]))
 
 (defn mode-select [state mode]
-  (let [next-state (-> state
-                       (assoc-in [:settings :mode] mode)
-                       (assoc-in [:layer-trainer :transfer?] false)
-                       (assoc-in [:display :wpm-history] [])
-                       (assoc-in [:ui :gesture-playback] nil)
-                       (assoc :session nil))
-        next-state (if (= mode :layers)
-                     next-state
-                     (assoc next-state :session (idle-session next-state (get-in state [:app :now]))))]
-    [[:state/set next-state]
-     [:scene/cancel-gesture]
-     [:persistence/save-settings]
-     [:scene/sync]
-     [:dom/focus-input]]))
+  (if (some #{mode} (state/available-modes state))
+    (let [next-state (-> state
+                         (assoc-in [:settings :mode] mode)
+                         (assoc-in [:layer-trainer :transfer?] false)
+                         (assoc-in [:display :wpm-history] [])
+                         (assoc-in [:ui :gesture-playback] nil)
+                         (assoc :session nil))
+          next-state (if (= mode :layers)
+                       next-state
+                       (assoc next-state :session (idle-session next-state (get-in state [:app :now]))))]
+      [[:state/set next-state]
+       [:scene/cancel-gesture]
+       [:persistence/save-settings]
+       [:scene/sync]
+       [:dom/focus-input]])
+    []))
 
 (defn session-start [state timestamp]
   (if-let [passage (or (when (= :idle (get-in state [:session :status]))
@@ -410,7 +430,7 @@
                              :chart (:chart analysis-result)))))))
 
 (defn session-consolidate [state timestamp]
-  (let [prescription (get-in state [:progress :next-prescription])]
+  (let [prescription (state/current-prescription state)]
     (if-let [passage (and prescription
                           (state/select-consolidation-passage state prescription))]
       (let [mode (:mode prescription)
@@ -435,9 +455,10 @@
    (typing-input state text timestamp nil node))
   ([state text timestamp wall-time node]
   (let [text (input/normalize-text text)
-        layer-practice? (and (= :layers (get-in state [:settings :mode]))
-                             (not (get-in state [:layer-trainer :transfer?])))
-        onboarding-gesture? (and layer-practice?
+        target (when (and (= :layers (get-in state [:settings :mode]))
+                          (not (get-in state [:layer-trainer :transfer?])))
+                 (state/current-target state))
+        onboarding-gesture? (and target
                                  (onboarding/active? (:onboarding state))
                                  (= :layers (get-in state [:onboarding :step]))
                                  (= :gestures (get-in state [:onboarding :phase])))
@@ -445,13 +466,12 @@
     (cond
       (empty? (or text "")) [[:input/clear node]]
 
-      layer-practice?
-      (let [target (state/current-target state)
-            correct? (= character (:character target))
+      target
+      (let [correct? (= character (:character target))
             next-index (if correct?
                          (inc (get-in state [:layer-trainer :target-index]))
                          (get-in state [:layer-trainer :target-index]))
-            next-target (nth state/layer-targets (mod next-index (count state/layer-targets)))
+            next-target (state/current-target state next-index)
             next-state (cond-> state
                          correct? (-> (assoc-in [:layer-trainer :target-index] next-index)
                                       (assoc-in [:layer-trainer :last-trained-target] target)
@@ -673,7 +693,7 @@
    [:scene/sync]])
 
 (defn layer-stage-selected [state stage]
-  (let [target (state/current-target state)]
+  (if-let [target (state/current-target state)]
     (cond-> [[:state/set (cond-> (-> state
                                      (assoc-in [:layer-trainer :stage] stage)
                                      (assoc-in [:layer-trainer :hint-visible?] false)
@@ -684,7 +704,8 @@
            [:scene/cancel-gesture]
            [:layers/sync-hint]
            [:scene/sync]]
-      (not= stage :explore) (conj [:dom/focus-input]))))
+      (not= stage :explore) (conj [:dom/focus-input]))
+    []))
 
 (defn layer-hint-reveal [state target-index]
   (if (and (= :delayed (get-in state [:layer-trainer :stage]))
@@ -709,7 +730,7 @@
                       :gesture-source :inferred
                       :copy {:key :analysis/prescription-character
                              :params {:character character}}}]
-    (if-let [passage (state/select-consolidation-passage state prescription)]
+    (if-let [passage (when target (state/select-consolidation-passage state prescription))]
       [[:state/set (-> state
                        (assoc :session (assoc (input/new-session passage :layers timestamp)
                                               :run-kind :transfer

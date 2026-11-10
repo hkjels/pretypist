@@ -4,7 +4,8 @@ import { readFile, writeFile } from "node:fs/promises";
 const root = new URL("../resources/public/", import.meta.url);
 const assets = ["/", "/css/app.css", "/js/app.js", "/manifest.webmanifest",
   "/corpora/en.edn", "/corpora/nb.edn", "/corpora/metadata.edn",
-  "/layouts/modified-engram.pretypist", "/icons/mark.svg", "/icons/app.svg",
+  "/layouts/modified-engram.pretypist", "/layouts/one-piece-example.pretypist",
+  "/icons/mark.svg", "/icons/app.svg",
   "/icons/favicon-32.png", "/icons/apple-touch-icon.png", "/icons/icon-192.png",
   "/icons/icon-512.png", "/icons/icon-maskable-512.png"];
 const template = await readFile(new URL("pwa/service-worker.js", import.meta.url), "utf8");

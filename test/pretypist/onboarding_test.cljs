@@ -9,16 +9,19 @@
                                 (onboarding/record-session
                                  {:completed? true :wpm 34 :accuracy 0.99
                                   :stall-count 0 :chart {:points []}}))
-        rhythm (onboarding/continue baseline-reflection)
-        layers (-> rhythm
-                   onboarding/start-session
-                   (onboarding/record-session
-                    {:completed? true :wpm 35 :accuracy 1 :stall-count 1})
-                   onboarding/continue)]
+        rhythm (onboarding/continue baseline-reflection true)
+        rhythm-reflection (-> rhythm
+                              onboarding/start-session
+                              (onboarding/record-session
+                               {:completed? true :wpm 35 :accuracy 1 :stall-count 1}))
+        layers (onboarding/continue rhythm-reflection true)
+        without-gestures (onboarding/continue rhythm-reflection false)]
     (is (= [:baseline :reflection] [(:step baseline-reflection) (:phase baseline-reflection)]))
     (is (= [:rhythm :intro] [(:step rhythm) (:phase rhythm)]))
     (is (= [:layers :intro] [(:step layers) (:phase layers)]))
-    (is (= 2 (count (:records layers))))))
+    (is (= 2 (count (:records layers))))
+    (is (= [:result :reflection] ((juxt :step :phase) without-gestures)))
+    (is (= (:records rhythm-reflection) (:records without-gestures)))))
 
 (deftest three-gestures-gate-natural-transfer-test
   (let [started (-> (onboarding/initial-state)

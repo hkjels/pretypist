@@ -2,8 +2,8 @@
 
 Start by choosing English or Norwegian Bokmål and confirming your keyboard
 layout. The optional first-run calibration moves from ungraded prose to phrase
-groups and then to layer gestures in prose. You can skip it or resume at a
-session boundary.
+groups, followed by layer gestures in prose if the layout maps them. You can
+skip calibration or resume at a session boundary.
 
 ## Training modes
 

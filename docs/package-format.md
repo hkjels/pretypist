@@ -62,7 +62,7 @@ The root value is one EDN map. Its sections are:
 | `:behaviors` | Named hold-tap, tap-dance, mod-morph, macro, and safety behavior data |
 | `:layers` | Semantic layers whose bindings map physical key IDs to separate display legends and actions |
 | `:combos` | Optional multi-key gestures and their layer/timing constraints |
-| `:strokes` | Reverse map from emitted text to expected physical gesture steps |
+| `:strokes` | Optional reverse map from emitted text to expected physical gesture steps; enables gesture practice |
 | `:host-profiles` | Host-specific firmware layers, overrides, and inert HID-emission descriptions |
 
 A compact but complete version-1 package definition looks like this (the

@@ -41,6 +41,7 @@ npm run audit:landing
 npm run audit:release
 npm run verify:zmk-display
 npm run package:layout
+npm run package:example
 npm run prepare:assets
 ```
 
@@ -64,7 +65,8 @@ contract and geometry cost without loading WebGL.
 sources and the visual constants transcribed from them; it never compiles or
 executes C.
 `package:layout` deterministically packages the editable Modified Engram
-sources. `prepare:assets` performs corpus analysis, synchronization, model
+sources. `package:example` generates and packages the small one-piece example.
+`prepare:assets` performs corpus analysis, synchronization, model
 adaptation, display generation, and layout packaging in build order.
 `audit:release` is the offline release gate: it checks the local-only browser
 shell and Content Security Policy, revalidates the deterministic package and
@@ -138,6 +140,12 @@ node scripts/serve.mjs 4173
 ```
 
 Then open <http://127.0.0.1:4173>.
+
+The build output can be deployed to a static HTTPS host. To use
+[GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site),
+publish `resources/public` as the site artifact. The current build assumes it
+is served at the origin root. For a Pages project site under `/pretypist/`,
+first make the asset URLs, manifest, and service worker scope use that base path.
 
 ### Installed app and offline practice
 

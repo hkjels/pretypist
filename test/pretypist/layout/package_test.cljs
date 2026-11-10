@@ -75,6 +75,22 @@
                    (done)))
           (.catch (fn [error] (is false (.-message error)) (done)))))))
 
+(deftest one-piece-example-imports-without-optional-features-test
+  (async done
+    (let [buffer (node-buffer->array-buffer
+                  (.readFileSync fs "resources/public/layouts/one-piece-example.pretypist"))]
+      (-> (package/read-package buffer)
+          (.then (fn [{:keys [ok? layout errors]}]
+                   (is ok? (pr-str errors))
+                   (is (= "one-piece-example" (:package/id layout)))
+                   (is (= 31 (count (:keys layout))))
+                   (is (= ["compact_case"] (get-in layout [:model :case-nodes])))
+                   (is (not-any? #(contains? (:model layout) %)
+                                 [:left-half-node :right-half-node]))
+                   (is (not-any? #(contains? layout %) [:displays :strokes]))
+                   (done)))
+          (.catch (fn [error] (is false (.-message error)) (done)))))))
+
 (deftest missing-required-package-file-test
   (async done
     (-> (zip-buffer [["layout.edn" "{}"]])

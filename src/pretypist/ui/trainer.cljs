@@ -10,7 +10,6 @@
             [pretypist.ui.brand :as brand]
             [pretypist.ui.icons :as icons]))
 
-(def mode-order [:flow :horizon :chunks :layers])
 
 (defn mode-name-key [mode] (keyword "mode" (name mode)))
 (defn mode-description-key [mode] (keyword "mode" (str (name mode) "-description")))
@@ -213,7 +212,7 @@
   (let [mode (get-in state [:settings :mode])
         session (:session state)
         insight (continuity/insight (:recent-summaries state)
-                                    (get-in state [:progress :next-prescription])
+                                    (state/current-prescription state)
                                     (get-in state [:app :wall-now]))]
     [:main.trainer-main
      (if insight

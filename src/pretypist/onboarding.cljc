@@ -53,11 +53,17 @@
         (assoc :phase :reflection)
         (update :records #(vec (take-last 3 (conj (or % []) record)))))))
 
-(defn continue [onboarding]
+(defn skip-layer-practice [onboarding]
+  (assoc onboarding :step :result :phase :reflection :gesture-index 0
+         :interrupted? false))
+
+(defn continue [onboarding layer-practice?]
   (case (:step onboarding)
     :baseline (assoc onboarding :step :rhythm :phase :intro :interrupted? false)
-    :rhythm (assoc onboarding :step :layers :phase :intro :gesture-index 0
-                   :interrupted? false)
+    :rhythm (if layer-practice?
+              (assoc onboarding :step :layers :phase :intro :gesture-index 0
+                     :interrupted? false)
+              (skip-layer-practice onboarding))
     :layers (assoc onboarding :step :result :phase :reflection :interrupted? false)
     onboarding))
 

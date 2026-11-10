@@ -233,10 +233,10 @@
    :selection/horizon "Its sentence rhythm leaves a clear read-ahead horizon."
    :selection/chunks "Its authored phrase lengths fit the next Chunks step."
    :selection/layers "It carries the selected layer movement into natural prose."
-   :onboarding/calibration-progress [:fn/str "Calibration {{:current}} of 3"]
+   :onboarding/calibration-progress [:fn/str "Calibration {{:current}} of {{:total}}"]
    :onboarding/welcome "A short introduction"
    :onboarding/setup-title "Meet your keyboard before the clock."
-   :onboarding/setup-copy "Choose your language and layout. Three short runs find your starting rhythm."
+   :onboarding/setup-copy "Choose your language and layout. Short practice sessions find your starting rhythm."
    :onboarding/telemetry-short "Your typing is measured. Layer gestures are illustrated from your layout."
    :onboarding/telemetry-details "What can the browser see?"
    :onboarding/your-layout "Your keyboard layout"
@@ -517,10 +517,10 @@
    :selection/horizon "Setningsrytmen gir et tydelig blikk fremover."
    :selection/chunks "De forfattede fraselengdene passer det neste steget i Fraser."
    :selection/layers "Den fører den valgte lagbevegelsen inn i naturlig prosa."
-   :onboarding/calibration-progress [:fn/str "Kalibrering {{:current}} av 3"]
+   :onboarding/calibration-progress [:fn/str "Kalibrering {{:current}} av {{:total}}"]
    :onboarding/welcome "En kort introduksjon"
    :onboarding/setup-title "Bli kjent med tastaturet før klokken."
-   :onboarding/setup-copy "Velg språk og oppsett. Tre korte økter finner rytmen du starter med."
+   :onboarding/setup-copy "Velg språk og oppsett. Korte økter finner rytmen du starter med."
    :onboarding/telemetry-short "Skrivingen din måles. Lagbevegelser illustreres ut fra oppsettet ditt."
    :onboarding/telemetry-details "Hva kan nettleseren se?"
    :onboarding/your-layout "Tastaturoppsettet ditt"
